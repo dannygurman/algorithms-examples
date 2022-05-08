@@ -10,13 +10,13 @@ public class SortColorsTester {
     //Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
     public static void main(String[] args) {
         //int [] nums = { 2 , 0 , 0 , 1 ,2 ,0 ,1 ,2};
-        int [] nums = {  1, 2 , 2 ,1 , 0 , 0 , 1 ,2 ,1, 1 ,2 , 0, 1, 0 ,1 ,0 ,2 ,0 , 2, 2 ,1 ,2 ,0 ,0 ,1};
+        int [] nums = {  1, 2 , 2 ,1 , 0 , 0 , 1 ,2 ,1, 1 ,2 , 0, 1, 0 ,1 ,0 ,2 ,0 , 2, 2 ,1 ,2 ,0 ,0 ,1,0};
 
         //SortColorPointersVer1.sortColors( nums);
 
-       // SortColorPointersVer2.sortColors(nums);
+       SortColorPointersVer2.sortColors(nums);
 
-         SortColorTrivialTwoPass.sortColors(nums);
+        // SortColorTrivialTwoPass.sortColors(nums);
 
        // SortColorTwoPassVer2.sortColors(nums);
 

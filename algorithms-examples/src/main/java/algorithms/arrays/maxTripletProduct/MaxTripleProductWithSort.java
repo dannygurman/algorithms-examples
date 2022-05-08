@@ -22,8 +22,8 @@ public class MaxTripleProductWithSort {
         Arrays.sort(arr);
 
         // Return the maximum of product of last three elements and product of first two elements and last element
-        int max1 = arr[0] * arr[1] * arr[n - 1]; //last three elements  - biggest numbers in sorted array
-        int max2 = arr[n - 1] * arr[n - 2] * arr[n - 3]; //first two elements and last element   - smallest numbers (might be negative) + biggest number
+        int max1 = arr[0] * arr[1] * arr[n - 1];  //first two elements and last element   - the smallest numbers (might be negative) + biggest number
+        int max2 = arr[n - 1] * arr[n - 2] * arr[n - 3]; //last three elements  - the biggest numbers in sorted array
         return Math.max(max1, max2);
     }
 

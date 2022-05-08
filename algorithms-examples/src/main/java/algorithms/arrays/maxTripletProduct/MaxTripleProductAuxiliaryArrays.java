@@ -49,12 +49,16 @@ public class MaxTripleProductAuxiliaryArrays {
         // leftMin[i] will contain min element on left of arr[i] excluding arr[i].
         for (int i = 1; i < n; i++) { //Iterating forward - skipping first index (value remain -1)
 
+            //Init with previous max sum
             leftMax[i] = max_sum;
+
             if (arr[i] > max_sum) {
                 max_sum = arr[i];
             }
 
+            //Init with previous min sum
             leftMin[i] = min_sum;
+
             if (arr[i] < min_sum) {
                 min_sum = arr[i];
             }
