@@ -1,13 +1,15 @@
 package algorithms.trie.trie1;
 
+import algorithms.trie.Trie;
+
 import java.util.Map;
 
-public class Trie {
+public class TrieV1 implements Trie {
 
-    private TrieNode root;
+    private TrieNodeV1 root;
 
-    public Trie() {
-        root = new TrieNode();
+    public TrieV1() {
+        root = new TrieNodeV1();
     }
 
    /* 1. Set a current node as a root node
@@ -21,11 +23,11 @@ public class Trie {
      The complexity of this operation is O(n), where n represents the key size.
      */
     public void insert(String word) {
-        TrieNode current = root;
+        TrieNodeV1 current = root;
 
         for (char currentChar : word.toCharArray()) {
-            Map<Character, TrieNode> childrens =  current.getChildren();
-            current = childrens.computeIfAbsent(currentChar, c -> new TrieNode());
+            Map<Character, TrieNodeV1> childrens =  current.getChildren();
+            current = childrens.computeIfAbsent(currentChar, c -> new TrieNodeV1());
         }
         current.setEndOfWord(true);
     }
@@ -47,11 +49,11 @@ public class Trie {
      * The complexity of this algorithm is O(n), where n represents the length of the key.
      */
     public boolean containsNode(String word) {
-        TrieNode current = root;
+        TrieNodeV1 current = root;
 
         for (int i = 0; i < word.length(); i++) {
             char currentChar = word.charAt(i);
-            TrieNode node = current.getChildren().get(currentChar);
+            TrieNodeV1 node = current.getChildren().get(currentChar);
             if (node == null) {
                 return false;
             }
@@ -63,18 +65,16 @@ public class Trie {
    public boolean isEmpty() {
         return root == null;
     }
-
     /**
      * Recursion
      * For the deletion process, we need to follow the steps:     *
      * Check whether this element is already part of the trie
      * If the element is found, then remove it from the trie
+     *
      * The complexity of this algorithm is O(n), where n represents the length of the key.
      * @return - Should delete current node
      */
-
-
-    private boolean delete(TrieNode current, String word, int index) {
+    private boolean delete(TrieNodeV1 current, String word, int index) {
         if (index == word.length()) {
             if (!current.isEndOfWord()) {
                 return false;
@@ -83,12 +83,11 @@ public class Trie {
             return current.getChildren().isEmpty();
         }
         char ch = word.charAt(index);
-        TrieNode node = current.getChildren().get(ch);
+        TrieNodeV1 node = current.getChildren().get(ch);
         if (node == null) {
             return false;
         }
-        boolean shouldDeleteCurrentNode = delete(node, word, index + 1) && !node.isEndOfWord();
-
+        boolean shouldDeleteCurrentNode = (delete(node, word, index + 1)) && (! node.isEndOfWord());
         if (shouldDeleteCurrentNode) {
             current.getChildren().remove(ch);
             return current.getChildren().isEmpty();
