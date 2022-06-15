@@ -4,6 +4,7 @@ import algorithms.trie.Trie;
 
 import java.util.Map;
 
+ // Using children map in TrieNode
 public class TrieV1 implements Trie {
 
     private TrieNodeV1 root;

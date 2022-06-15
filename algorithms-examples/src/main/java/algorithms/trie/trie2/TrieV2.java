@@ -2,6 +2,11 @@ package algorithms.trie.trie2;
 
 import algorithms.trie.trie1.TrieNodeV1;
 
+import static algorithms.trie.trie2.TrieNodeV2.ALPHABET_SIZE;
+
+/**
+ * Using children array in TrieNode (mifht include null value)
+ */
 public class TrieV2 {
 
     private TrieNodeV2 root;
@@ -34,23 +39,23 @@ public class TrieV2 {
 
     // Returns true if key presents in trie, else
     // false
-    static boolean search(TrieNode root, String key) {
-        TrieNode pCrawl = root;
+    public boolean containsNode(String word) {
+        TrieNodeV2 current = root;
 
-        for (int i = 0; i < key.length(); i++) {
-            int index = key.charAt(i) - 'a';
-            if (pCrawl.children[index] == null) {
+        for (int i = 0; i < word.length(); i++) {
+            int index = getCharIndex(word.charAt(i));
+            TrieNodeV2 childNodeAtIndex = current.children[index];
+            if (childNodeAtIndex == null) {
                 return false;
             }
-
-            pCrawl = pCrawl.children[index];
+            current = childNodeAtIndex;
         }
-
-        return (pCrawl != null && pCrawl.isEndOfWord);
+        return (current.isEndOfWord);
     }
 
+
     // Returns true if root has no children, else false
-    static boolean isEmpty(TrieNode root) {
+    public boolean isEmpty() {
         for (int i = 0; i < ALPHABET_SIZE; i++) {
             if (root.children[i] != null) {
                 return false;
