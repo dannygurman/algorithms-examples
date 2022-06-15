@@ -93,6 +93,8 @@ public class TrieV2 implements Trie {
 
             // If given is not prefix of any other word
             if (isEmpty(current)) {
+                //If we are on last word char (depthIndex == word.length()) +
+                //There are no child - delete Node by returning NUll (so parent will set this child as null)
                 current = null;
             }
             return current;
