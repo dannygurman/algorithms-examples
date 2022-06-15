@@ -74,6 +74,12 @@ public class TrieUnitTest {
         assertTrue(trie.containsNode("pie"));
     }
 
+    @Test
+    public void givenATrie_whenDeletingNonExistingElements_thenNoException() {
+        Trie trie = initTrie();
+        trie.delete("abcd");
+    }
+
     private Trie createExampleTrie() {
         Trie trie = initTrie();
         trie.insert("programming");

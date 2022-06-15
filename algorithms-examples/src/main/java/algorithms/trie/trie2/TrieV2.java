@@ -60,8 +60,12 @@ public class TrieV2 implements Trie {
 
     // Returns true if root has no children, else false
     public boolean isEmpty() {
+        return isEmpty(root);
+    }
+
+    private boolean isEmpty(TrieNodeV2 node) {
         for (int i = 0; i < ALPHABET_SIZE; i++) {
-            if (root.children[i] != null) {
+            if (node.children[i] != null) {
                 return false;
             }
         }
@@ -75,19 +79,28 @@ public class TrieV2 implements Trie {
     // Recursive function to delete a key from given Trie
     private TrieNodeV2 delete(TrieNodeV2 current, String word, int depthIndex) {
 
-        // If last character of key is being processed
+        // If tree is empty
+        if (current == null) {
+            return null;
+        }
+
+        // If last character of word is being processed
         if (depthIndex == word.length()) {
             // This node is no more end of word after removal of given key
             if (current.isEndOfWord) {
                 current.isEndOfWord = false;
             }
+
+            // If given is not prefix of any other word
+            if (isEmpty(current)) {
+                current = null;
+            }
             return current;
         }
 
         // If not last character, recur for the child // obtained using ASCII value
-        int index = getCharIndex(word.charAt(depthIndex));
-        current.children[index] =
-            delete(current.children[index], word, depthIndex + 1);
+        int charIndex = getCharIndex(word.charAt(depthIndex));
+        current.children[charIndex] = delete(current.children[charIndex], word, depthIndex + 1);
         return current;
     }
 
