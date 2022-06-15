@@ -66,6 +66,10 @@ public class Trie {
 
     /**
      * Recursion
+     * For the deletion process, we need to follow the steps:     *
+     * Check whether this element is already part of the trie
+     * If the element is found, then remove it from the trie
+     * The complexity of this algorithm is O(n), where n represents the length of the key.
      * @return - Should delete current node
      */
 
