@@ -64,7 +64,7 @@ public class TrieV1 implements Trie {
     }
 
    public boolean isEmpty() {
-        return root == null;
+        return root.getChildren().isEmpty();
     }
     /**
      * Recursion

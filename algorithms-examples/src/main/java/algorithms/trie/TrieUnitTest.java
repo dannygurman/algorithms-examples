@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 public class TrieUnitTest {
 
     //Set Implementation version
-    private int trieVersion = 1;
+    private int trieVersion = 2;
 
 
     private Trie initTrie() {
@@ -25,7 +25,7 @@ public class TrieUnitTest {
     @Test
     public void whenEmptyTrie_thenNoElements() {
         Trie trie = initTrie();
-        assertFalse(trie.isEmpty());
+        assertTrue(trie.isEmpty());
     }
 
     @Test
@@ -37,9 +37,10 @@ public class TrieUnitTest {
     @Test
     public void givenATrie_whenAddingElements_thenTrieHasThoseElements() {
         Trie trie = createExampleTrie();
-        assertFalse(trie.containsNode("3"));
+        assertFalse(trie.containsNode("xxx"));
         assertFalse(trie.containsNode("vida"));
-        assertTrue(trie.containsNode("Programming"));
+
+        assertTrue(trie.containsNode("programming"));
         assertTrue(trie.containsNode("is"));
         assertTrue(trie.containsNode("a"));
         assertTrue(trie.containsNode("way"));
@@ -56,9 +57,9 @@ public class TrieUnitTest {
     @Test
     public void givenATrie_whenDeletingElements_thenTreeDoesNotContainThoseElements() {
         Trie trie = createExampleTrie();
-        assertTrue(trie.containsNode("Programming"));
-        trie.delete("Programming");
-        assertFalse(trie.containsNode("Programming"));
+        assertTrue(trie.containsNode("programming"));
+        trie.delete("programming");
+        assertFalse(trie.containsNode("programming"));
     }
 
     @Test
@@ -72,7 +73,7 @@ public class TrieUnitTest {
 
     private Trie createExampleTrie() {
         Trie trie = initTrie();
-        trie.insert("Programming");
+        trie.insert("programming");
         trie.insert("is");
         trie.insert("a");
         trie.insert("way");

@@ -17,7 +17,11 @@ public class TrieV2 implements Trie {
     }
 
     private static int getCharIndex(char char1) {
-      return char1 - 'a';
+      int charIndex = char1 - 'a';
+      if (charIndex < 0){
+          throw new  IllegalArgumentException("Unsupported char " + char1);
+      }
+      return charIndex;
     }
 
     // If not present, inserts key into trie
@@ -27,11 +31,10 @@ public class TrieV2 implements Trie {
 
         for (int i = 0; i < word.length(); i++) {
             int index = getCharIndex(word.charAt(i));
-            TrieNodeV2 childNodeAtIndex = current.children[index];
-            if (childNodeAtIndex == null) {
-                childNodeAtIndex = new TrieNodeV2();
+            if (current.children[index] == null) {
+                current.children[index] = new TrieNodeV2();
             }
-            current = childNodeAtIndex;
+            current = current.children[index];
         }
 
         // mark last node as leaf
