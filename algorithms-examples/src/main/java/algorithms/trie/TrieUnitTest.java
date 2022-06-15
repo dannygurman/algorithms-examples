@@ -37,6 +37,7 @@ public class TrieUnitTest {
     @Test
     public void givenATrie_whenAddingElements_thenTrieHasThoseElements() {
         Trie trie = createExampleTrie();
+
         assertFalse(trie.containsNode("xxx"));
         assertFalse(trie.containsNode("vida"));
 
@@ -51,7 +52,7 @@ public class TrieUnitTest {
     @Test
     public void givenATrie_whenLookingForNonExistingElement_thenReturnsFalse() {
         Trie trie = createExampleTrie();
-        assertFalse(trie.containsNode("99"));
+        assertFalse(trie.containsNode("abcd"));
     }
 
     @Test
@@ -67,7 +68,9 @@ public class TrieUnitTest {
         Trie trie = initTrie();
         trie.insert("pie");
         trie.insert("pies");
+
         trie.delete("pies");
+
         assertTrue(trie.containsNode("pie"));
     }
 

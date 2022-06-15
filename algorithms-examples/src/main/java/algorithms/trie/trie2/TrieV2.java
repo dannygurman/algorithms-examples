@@ -78,18 +78,17 @@ public class TrieV2 implements Trie {
         // If last character of key is being processed
         if (depthIndex == word.length()) {
             // This node is no more end of word after removal of given key
-            if (root.isEndOfWord) {
-                root.isEndOfWord = false;
+            if (current.isEndOfWord) {
+                current.isEndOfWord = false;
             }
-            return root;
+            return current;
         }
 
-        // If not last character, recur for the child
-        // obtained using ASCII value
+        // If not last character, recur for the child // obtained using ASCII value
         int index = getCharIndex(word.charAt(depthIndex));
-        root.children[index] =
-            delete(root.children[index], word, depthIndex + 1);
-        return root;
+        current.children[index] =
+            delete(current.children[index], word, depthIndex + 1);
+        return current;
     }
 
 }
