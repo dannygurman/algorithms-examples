@@ -33,8 +33,8 @@ public class TrieV1 implements Trie {
         current.setEndOfWord(true);
     }
 
-    public boolean delete(String word) {
-        return delete(root, word, 0);
+    public void delete(String word) {
+         delete(root, word, 0);
     }
 
     /**
@@ -75,20 +75,23 @@ public class TrieV1 implements Trie {
      * The complexity of this algorithm is O(n), where n represents the length of the key.
      * @return - Should delete current node
      */
-    private boolean delete(TrieNodeV1 current, String word, int index) {
-        if (index == word.length()) {
+    private boolean delete(TrieNodeV1 current, String word, int depthIndex) {
+        if (depthIndex == word.length()) {
             if (!current.isEndOfWord()) {
+                //If we reach the end of word index - but it is not marked as end of word
+                //the word does not found so we should NOT delete this node
                 return false;
             }
+            //The whole word is found - before deleting
             current.setEndOfWord(false);
             return current.getChildren().isEmpty();
         }
-        char ch = word.charAt(index);
+        char ch = word.charAt(depthIndex);
         TrieNodeV1 node = current.getChildren().get(ch);
         if (node == null) {
             return false;
         }
-        boolean shouldDeleteCurrentNode = (delete(node, word, index + 1)) && (! node.isEndOfWord());
+        boolean shouldDeleteCurrentNode = (delete(node, word, depthIndex + 1)) && (! node.isEndOfWord());
         if (shouldDeleteCurrentNode) {
             current.getChildren().remove(ch);
             return current.getChildren().isEmpty();

@@ -1,16 +1,25 @@
 package algorithms.trie;
 
 import algorithms.trie.trie1.TrieV1;
+import algorithms.trie.trie2.TrieV2;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 
 public class TrieUnitTest {
 
-    private int ver = 1;
+    //Set Implementation version
+    private int trieVersion = 1;
+
 
     private Trie initTrie() {
-        return new TrieV1();
+        if (trieVersion == 1) {
+            return new TrieV1();
+        } else {
+            return new TrieV2();
+        }
     }
 
     @Test

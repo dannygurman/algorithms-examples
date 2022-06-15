@@ -1,5 +1,6 @@
 package algorithms.trie.trie2;
 
+import algorithms.trie.Trie;
 import algorithms.trie.trie1.TrieNodeV1;
 
 import static algorithms.trie.trie2.TrieNodeV2.ALPHABET_SIZE;
@@ -7,7 +8,7 @@ import static algorithms.trie.trie2.TrieNodeV2.ALPHABET_SIZE;
 /**
  * Using children array in TrieNode (mifht include null value)
  */
-public class TrieV2 {
+public class TrieV2 implements Trie {
 
     private TrieNodeV2 root;
 
@@ -64,42 +65,27 @@ public class TrieV2 {
         return true;
     }
 
+    public void delete(String word) {
+        delete(root, word, 0);
+    }
+
     // Recursive function to delete a key from given Trie
-    static TrieNode remove(TrieNode root, String key, int depth) {
-        // If tree is empty
-        if (root == null) {
-            return null;
-        }
+    private TrieNodeV2 delete(TrieNodeV2 current, String word, int depthIndex) {
 
         // If last character of key is being processed
-        if (depth == key.length()) {
-
-            // This node is no more end of word after
-            // removal of given key
+        if (depthIndex == word.length()) {
+            // This node is no more end of word after removal of given key
             if (root.isEndOfWord) {
                 root.isEndOfWord = false;
             }
-
-            // If given is not prefix of any other word
-            if (isEmpty(root)) {
-                root = null;
-            }
-
             return root;
         }
 
         // If not last character, recur for the child
         // obtained using ASCII value
-        int index = key.charAt(depth) - 'a';
+        int index = getCharIndex(word.charAt(depthIndex));
         root.children[index] =
-            remove(root.children[index], key, depth + 1);
-
-        // If root does not have any child (its only child got
-        // deleted), and it is not end of another word.
-        if (isEmpty(root) && root.isEndOfWord == false) {
-            root = null;
-        }
-
+            delete(root.children[index], word, depthIndex + 1);
         return root;
     }
 
