@@ -77,6 +77,7 @@ public class TrieV2 implements Trie {
     }
 
     // Recursive function to delete a key from given Trie
+    //Return new current TrieNodeV2 - might be change to null + maybe the isEndOfWord mark changed.
     private TrieNodeV2 delete(TrieNodeV2 current, String word, int depthIndex) {
 
         // If tree is empty

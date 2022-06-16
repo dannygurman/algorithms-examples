@@ -82,20 +82,33 @@ public class TrieV1 implements Trie {
                 //the word does not found so we should NOT delete this node
                 return false;
             }
-            //The whole word is found - before deleting
+            //The whole word is found ,this node is no more end of word after removal of given key
             current.setEndOfWord(false);
+            //Since we are on last word char (depthIndex == word.length())
+            //In case  there are no child this node can be deleted
             return current.getChildren().isEmpty();
         }
-        char ch = word.charAt(depthIndex);
-        TrieNodeV1 node = current.getChildren().get(ch);
-        if (node == null) {
+        char charAtIndex = word.charAt(depthIndex);
+        TrieNodeV1 matchingChildNode = current.getChildren().get(charAtIndex);
+        if (matchingChildNode == null) {
+            //No matching child found - word not found so stopping and NOT continue
+            // searching + the node should not be deleted (not part of word to delete)
             return false;
         }
-        boolean shouldDeleteCurrentNode = (delete(node, word, depthIndex + 1)) && (! node.isEndOfWord());
-        if (shouldDeleteCurrentNode) {
-            current.getChildren().remove(ch);
+        //Recursion call with next depthIndex (next char in word to search)
+        //Child Node should be deleted only if recursion could return that it should and
+        //it is not end of word.
+        // For example if we delete word "ABC" we do NOT want to delete word "AB" if exist.
+        boolean shouldDeleteChildNode = (delete(matchingChildNode, word, depthIndex + 1))
+            &&
+            (! matchingChildNode.isEndOfWord());
+
+        if (shouldDeleteChildNode) {
+            current.getChildren().remove(matchingChildNode);
+            //Current node should be deleted if after remove matching child there are no child left
             return current.getChildren().isEmpty();
         }
+        //Child node should not be deleted - so parent could not be deleted obviously
         return false;
     }
 }
