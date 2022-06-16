@@ -9,8 +9,8 @@ public class CountPairsDivisibleByNumFinder {
     private static int DIVIDER = 60;
     public static void main(String[] args)  {
         List <Integer> values = List.of(30, 20, 150, 100, 40);
-        int numOdMatchingPairs = findNumPairsDivisibleBy60(values);
-        System.out.println("numOdMatchingPairs:" + numOdMatchingPairs);
+        int numOfMatchingPairs = findNumPairsDivisibleBy60(values);
+        System.out.println("numOfMatchingPairs:" + numOfMatchingPairs);
     }
 
     public static int findNumPairsDivisibleBy60(List<Integer> values) {
