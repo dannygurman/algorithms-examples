@@ -12,6 +12,10 @@ public class AlgorithmUtils {
         arr[index2] = temp;
     }
 
+    public static boolean isArraysEqual (char[] array1, char[] array2) {
+        return (Arrays.compare(array1, array2) == 0);
+    }
+
     public static void printArray( int [] array , int startIndex , int endIndex) {
         printArray(Arrays.copyOfRange(array ,startIndex,endIndex));
     }
