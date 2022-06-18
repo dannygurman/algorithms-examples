@@ -1,4 +1,4 @@
-package algorithms.strings;
+package algorithms.strings.countAndSay;
 
 //Find the n’th term in Look-and-say (Or Count and Say) Sequence.
 // The look-and-say sequence is the sequence of below integers:
