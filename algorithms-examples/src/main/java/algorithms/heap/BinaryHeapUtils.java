@@ -2,7 +2,7 @@ package algorithms.heap;
 
 import algorithms.utils.AlgorithmUtils;
 
-public class HeapBuilder {
+public class BinaryHeapUtils {
 
     // Function to build a Max-Heap from the Array
     public static void buildMaxHeap(int arr[]) {
