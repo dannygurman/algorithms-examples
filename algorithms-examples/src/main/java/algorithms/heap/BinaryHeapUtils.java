@@ -14,8 +14,24 @@ public class BinaryHeapUtils {
         // from last non-leaf node and heapify
         // each node
         for (int i = startIndex; i >= 0; i--) {
-            heapifyMaxHeap(arr, i);
+            heapifyMax(arr, arr.length, i);
         }
+    }
+
+
+    public static void heapsort(int arr[]){
+     //First build maxHeap
+        buildMaxHeap(arr);
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+          //Swapping root(first node) with current last element(evert time left array to be sorted is shorter)
+            AlgorithmUtils.swap(arr, 0, i);
+
+            // Heapify root element - lengthToHeapify set to i , everytime we heapify smaller tree
+            heapifyMax(arr, i, 0);
+        }
+
+
     }
 
     private static int getLastNonLeafNodeIndex(int arr[]) {
@@ -30,21 +46,27 @@ public class BinaryHeapUtils {
         return (2 * idx + 2);
     }
 
+    /**
+     *  Heapify to build Max heap
+     *  lengthToHeapify could be less then  arr.length (for sort algorithm) -
+     *  in this cse we ignore array members in indexes above lengthToHeapify
+     * */
 
-    private static void heapifyMaxHeap(int arr[], int rootIndex) {
+    //I length
+    private static void heapifyMax(int arr[],int lengthToHeapify, int rootIndex) {
         int largestIndex = rootIndex; // Initialize largest as root
 
         int leftIndex = getLeftChildIndex(rootIndex); // left = 2*i + 1
         int rightIndex = getRightChildIndex(rootIndex); // right = 2*i + 2
-        int arraylength = arr.length;
+
 
         // If left child is larger than root
-        if (leftIndex < arraylength && arr[leftIndex] > arr[largestIndex]) {
+        if (leftIndex < lengthToHeapify && arr[leftIndex] > arr[largestIndex]) {
             largestIndex = leftIndex;
         }
 
         // If right child is larger than largest so far
-        if (rightIndex < arraylength && arr[rightIndex] > arr[largestIndex]) {
+        if (rightIndex < lengthToHeapify && arr[rightIndex] > arr[largestIndex]) {
             largestIndex = rightIndex;
         }
 
@@ -54,7 +76,7 @@ public class BinaryHeapUtils {
             AlgorithmUtils.swap(arr, rootIndex, largestIndex);
 
             // Recursively heapify the affected sub-tree
-            heapifyMaxHeap(arr, largestIndex);
+            heapifyMax(arr, lengthToHeapify, largestIndex);
         }
     }
 
