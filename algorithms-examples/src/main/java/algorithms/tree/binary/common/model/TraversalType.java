@@ -1,12 +1,12 @@
 package algorithms.tree.binary.common.model;
 
-import algorithms.tree.binary.traversal.TreeTraversal;
-import algorithms.tree.binary.traversal.inorder.InOrderTraversalRecursion;
-import algorithms.tree.binary.traversal.inorder.InOrderTraversalStack;
-import algorithms.tree.binary.traversal.postorder.PostOrderTraversalRecursion;
-import algorithms.tree.binary.traversal.postorder.PostOrderTraversalStack;
-import algorithms.tree.binary.traversal.preorder.PreOrderTraversalRecursion;
-import algorithms.tree.binary.traversal.preorder.PreOrderTraversalStack;
+import algorithms.tree.binary.traversal.DFS.TreeTraversal;
+import algorithms.tree.binary.traversal.DFS.inorder.InOrderTraversalRecursion;
+import algorithms.tree.binary.traversal.DFS.inorder.InOrderTraversalStack;
+import algorithms.tree.binary.traversal.DFS.postorder.PostOrderTraversalRecursion;
+import algorithms.tree.binary.traversal.DFS.postorder.PostOrderTraversalStack;
+import algorithms.tree.binary.traversal.DFS.preorder.PreOrderTraversalRecursion;
+import algorithms.tree.binary.traversal.DFS.preorder.PreOrderTraversalStack;
 import lombok.Getter;
 
 @Getter

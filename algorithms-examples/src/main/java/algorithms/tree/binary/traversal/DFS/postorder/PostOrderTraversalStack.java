@@ -1,7 +1,7 @@
-package algorithms.tree.binary.traversal.postorder;
+package algorithms.tree.binary.traversal.DFS.postorder;
 
 import algorithms.tree.binary.common.model.Node;
-import algorithms.tree.binary.traversal.TreeTraversal;
+import algorithms.tree.binary.traversal.DFS.TreeTraversal;
 
 import java.util.List;
 import java.util.Stack;

@@ -1,4 +1,4 @@
-package algorithms.tree.binary.traversal;
+package algorithms.tree.binary.traversal.DFS;
 
 import algorithms.tree.binary.common.model.BinaryTree;
 import algorithms.tree.binary.common.utils.BinaryTreeUtils;
