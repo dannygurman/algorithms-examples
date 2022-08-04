@@ -2,7 +2,7 @@ package algorithms.tree.binary.binarySearchTree;
 
 import algorithms.tree.binary.common.model.BinaryTree;
 import algorithms.tree.binary.common.model.Node;
-import algorithms.tree.binary.common.model.TraversalType;
+import algorithms.tree.binary.traversal.TraversalType;
 import algorithms.tree.binary.common.utils.BinarySearchTreeUtils;
 import algorithms.tree.binary.common.utils.BinarySearchTreeUtils_2;
 import algorithms.tree.binary.common.utils.BinaryTreeUtils;

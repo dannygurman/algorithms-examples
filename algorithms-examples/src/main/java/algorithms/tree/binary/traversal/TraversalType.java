@@ -1,5 +1,7 @@
-package algorithms.tree.binary.common.model;
+package algorithms.tree.binary.traversal;
 
+import algorithms.tree.binary.traversal.BFS.BFSTraversalRecursion;
+import algorithms.tree.binary.traversal.BFS.BFSTraversalStack;
 import algorithms.tree.binary.traversal.DFS.TreeTraversal;
 import algorithms.tree.binary.traversal.DFS.inorder.InOrderTraversalRecursion;
 import algorithms.tree.binary.traversal.DFS.inorder.InOrderTraversalStack;
@@ -16,7 +18,9 @@ public enum TraversalType {
     POSTORDER_RECURSION(new PostOrderTraversalRecursion()),
     POSTORDER_STACK(new PostOrderTraversalStack()),
     PREORDER_RECURSION(new PreOrderTraversalRecursion()),
-    PREORDER_STACK(new PreOrderTraversalStack());
+    PREORDER_STACK(new PreOrderTraversalStack()),
+    BFS_RECURSION(new BFSTraversalRecursion()),
+    BFS_STACK(new BFSTraversalStack());
 
     TraversalType(TreeTraversal implementor) {
         this.traversalImplementor = implementor;

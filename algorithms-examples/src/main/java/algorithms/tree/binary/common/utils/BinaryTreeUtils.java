@@ -2,11 +2,9 @@ package algorithms.tree.binary.common.utils;
 
 import algorithms.tree.binary.common.model.BinaryTree;
 import algorithms.tree.binary.common.model.Node;
-import algorithms.tree.binary.common.model.TraversalType;
 import lombok.Getter;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.function.BiFunction;
 
@@ -58,10 +56,6 @@ public class BinaryTreeUtils {
         return tree;
     }
 
-    //---------------Traversal -------------------------
-    public static List<Integer> traversalTree(BinaryTree tree, TraversalType traversalType) {
-        return traversalType.getTraversalImplementor().travereseTree(tree);
-    }
 
 
 
