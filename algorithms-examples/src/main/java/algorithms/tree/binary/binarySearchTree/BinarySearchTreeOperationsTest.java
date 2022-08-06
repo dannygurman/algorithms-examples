@@ -6,6 +6,7 @@ import algorithms.tree.binary.traversal.TraversalType;
 import algorithms.tree.binary.common.utils.BinarySearchTreeUtils;
 import algorithms.tree.binary.common.utils.BinarySearchTreeUtils_2;
 import algorithms.tree.binary.common.utils.BinaryTreeUtils;
+import algorithms.tree.binary.traversal.TreeTraversalHandler;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -64,7 +65,7 @@ public class BinarySearchTreeOperationsTest {
     private void test_Insert_internal(BiFunction <Node, Integer, Node> insertNodeFunction) {
         int valueToAdd = MAX_VALUE + 1;
         insertNodeFunction.apply(tree.root, valueToAdd);
-        List<Integer> orderedTreeNodeValues = BinaryTreeUtils.traversalTree(this.tree, TraversalType.INORDER_RECURSION);
+        List<Integer> orderedTreeNodeValues = TreeTraversalHandler.traversalTree(this.tree, TraversalType.INORDER_RECURSION);
         int lastMostRightValue = orderedTreeNodeValues.get(orderedTreeNodeValues.size() -1);
         assertEquals(valueToAdd, lastMostRightValue);
     }
@@ -89,7 +90,7 @@ public class BinarySearchTreeOperationsTest {
 
     private void deleteAndVerify(BinaryTreeUtils.TreeValues treeValue) {
         int valueToDelete =  treeValue.getValue();//20
-        List<Integer> treeNodeValues = BinaryTreeUtils.traversalTree(this.tree, TraversalType.INORDER_RECURSION);
+        List<Integer> treeNodeValues = TreeTraversalHandler.traversalTree(this.tree, TraversalType.INORDER_RECURSION);
         assertTrue(treeNodeValues.contains(valueToDelete));
 
         BinarySearchTreeUtils.delete(tree.root, valueToDelete);
@@ -97,12 +98,12 @@ public class BinarySearchTreeOperationsTest {
         //After delete
         System.out.println("\nAfter deleting:"+ valueToDelete);
         printInorder();
-        treeNodeValues = BinaryTreeUtils.traversalTree(this.tree, TraversalType.INORDER_RECURSION);
+        treeNodeValues = TreeTraversalHandler.traversalTree(this.tree, TraversalType.INORDER_RECURSION);
         assertFalse(treeNodeValues.contains(valueToDelete));
     }
 
     private void printInorder() {
-        List<Integer> orderedTreeNodeValues = BinaryTreeUtils.traversalTree(this.tree, TraversalType.INORDER_RECURSION);
+        List<Integer> orderedTreeNodeValues = TreeTraversalHandler.traversalTree(this.tree, TraversalType.INORDER_RECURSION);
         orderedTreeNodeValues.forEach(System.out::println);
     }
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class TreeTraversalHandler {
     public static List<Integer> traversalTree(BinaryTree tree, TraversalType traversalType) {
-        return traversalType.getTraversalImplementor().travereseTree(tree);
+        return traversalType.getTraversalImplementor().getTreeTraversalValues(tree);
     }
 
 

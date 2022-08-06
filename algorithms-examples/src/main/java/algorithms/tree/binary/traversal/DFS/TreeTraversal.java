@@ -1,7 +1,6 @@
 package algorithms.tree.binary.traversal.DFS;
 
 import algorithms.tree.binary.common.model.BinaryTree;
-import algorithms.tree.binary.common.utils.BinaryTreeUtils;
 import algorithms.tree.binary.common.model.Node;
 
 import java.util.ArrayList;
@@ -10,7 +9,7 @@ import java.util.stream.Collectors;
 
 public abstract class TreeTraversal {
 
-    public List <Integer> travereseTree(BinaryTree tree){
+    public List <Integer> getTreeTraversalValues(BinaryTree tree){
         List<Node> orderedNode =  traverseTree( tree);
         return orderedNode.stream()
                 .map(n -> Integer.valueOf(n.value))
