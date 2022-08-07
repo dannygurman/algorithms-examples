@@ -97,8 +97,9 @@ public class TreeTraversalTest {
 
         orderedTreeNodeValues.forEach(System.out::println);
 
-        List <Integer> expectedOrderedTreeNodeValues = Arrays.asList(expectedOrderedValues)
-            .stream().map(BinaryTreeUtils.TreeValues::getValue).collect(Collectors.toList());
+        List <Integer> expectedOrderedTreeNodeValues = Arrays.asList(expectedOrderedValues).stream()
+            .map(BinaryTreeUtils.TreeValues::getValue)
+            .collect(Collectors.toList());
         ////4(D), 2(B),5(E),1(A) ,20(F),3(C),100(G)
         assertEquals(expectedOrderedTreeNodeValues, orderedTreeNodeValues);
     }

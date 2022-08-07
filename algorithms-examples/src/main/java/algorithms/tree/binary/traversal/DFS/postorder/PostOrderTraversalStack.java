@@ -13,7 +13,7 @@ public class PostOrderTraversalStack extends AbsDFSTraversal {
     /*  (Left, Right, Root) : 4 5 2 3 1  */
 
 
-    protected void traverseTreeInternal(List<Node> list, Node node) {
+    protected void traverseTreeInternal(List<Node> visitedNodes, Node node) {
 
         //Stack for the nodes
         Stack<Node> stack = new Stack<Node>();
@@ -27,7 +27,7 @@ public class PostOrderTraversalStack extends AbsDFSTraversal {
 
             if (node.left == null && node.right == null) {
                 Node poped = stack.pop();
-                list.add(poped);
+                visitedNodes.add(poped);
             } else {
                 if (node.right != null) {
                     stack.push(node.right);

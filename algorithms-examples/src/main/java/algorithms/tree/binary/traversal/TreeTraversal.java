@@ -24,7 +24,7 @@ public abstract class TreeTraversal {
         return list;
     }
 
-    protected abstract  void traverseTreeInternal(List <Node> list, Node node);
+    protected abstract  void traverseTreeInternal(List <Node> visitedNodes, Node node);
 
 
 

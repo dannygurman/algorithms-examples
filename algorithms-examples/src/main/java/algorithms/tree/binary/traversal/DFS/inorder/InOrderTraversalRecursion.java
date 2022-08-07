@@ -14,19 +14,19 @@ public class InOrderTraversalRecursion extends AbsDFSTraversal {
         1
         3*/
 
-    protected  void traverseTreeInternal(List <Node> list, Node node){
+    protected  void traverseTreeInternal(List <Node> visitedNodes, Node node){
 
         Node rightNode = node.right;
         Node leftNode = node.left;
 
         if (leftNode != null){
-            traverseTreeInternal( list, leftNode) ;
+            traverseTreeInternal( visitedNodes, leftNode) ;
         }
 
-        list.add(node);
+        visitedNodes.add(node);
 
         if (rightNode != null){
-            traverseTreeInternal( list, rightNode) ;
+            traverseTreeInternal( visitedNodes, rightNode) ;
         }
 
     }

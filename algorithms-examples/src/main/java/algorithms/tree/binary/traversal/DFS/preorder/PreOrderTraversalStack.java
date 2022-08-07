@@ -13,7 +13,7 @@ public class PreOrderTraversalStack extends AbsDFSTraversal {
        /* Preorder (Root, Left, Right) : 1 2 4 5 3*/
 
 
-    protected  void traverseTreeInternal(List<Node> list, Node node) {
+    protected  void traverseTreeInternal(List<Node> visitedNodes, Node node) {
 
         // Create an empty stack and push root to it
         Stack<Node> stack = new Stack<Node>();
@@ -27,7 +27,7 @@ public class PreOrderTraversalStack extends AbsDFSTraversal {
 
         while ( !  stack.isEmpty()){
             node = stack.pop();
-            list.add(node);
+            visitedNodes.add(node);
 
             // Push right and left children of the popped node to stack
             if (node.right != null) {

@@ -11,20 +11,20 @@ public class PostOrderTraversalRecursion extends AbsDFSTraversal {
     /*  (Left, Right, Root) : 4 5 2 3 1  */
 
 
-    protected void traverseTreeInternal(List<Node> list, Node node) {
+    protected void traverseTreeInternal(List<Node> visitedNodes, Node node) {
 
         Node rightNode = node.right;
         Node leftNode = node.left;
 
         if (leftNode != null) {
-            traverseTreeInternal(list, leftNode);
+            traverseTreeInternal(visitedNodes, leftNode);
         }
 
 
         if (rightNode != null) {
-            traverseTreeInternal(list, rightNode);
+            traverseTreeInternal(visitedNodes, rightNode);
         }
 
-        list.add(node);
+        visitedNodes.add(node);
     }
 }

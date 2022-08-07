@@ -10,7 +10,7 @@ import java.util.Stack;
 public class InOrderTraversalStack extends AbsDFSTraversal {
         /* left root right       4        2        5        1        3*/
 
-    protected  void traverseTreeInternal(List<Node> list, Node node) {
+    protected  void traverseTreeInternal(List<Node> visitedNodes, Node node) {
 
         //Stack for the nodes
         Stack<Node> stack = new Stack<Node>();
@@ -23,7 +23,7 @@ public class InOrderTraversalStack extends AbsDFSTraversal {
             } else {
                 //add root
                 node = stack.pop();
-                list.add(node);
+                visitedNodes.add(node);
 
                 node = node.right;
             }

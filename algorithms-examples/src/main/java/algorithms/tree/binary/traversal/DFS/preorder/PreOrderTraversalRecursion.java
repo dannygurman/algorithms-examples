@@ -11,20 +11,20 @@ public class PreOrderTraversalRecursion extends AbsDFSTraversal {
        /* Preorder (Root, Left, Right) : 1 2 4 5 3*/
 
 
-    protected  void traverseTreeInternal(List<Node> list, Node node){
+    protected  void traverseTreeInternal(List<Node> visitedNodes, Node node){
 
         Node rightNode = node.right;
         Node leftNode = node.left;
 
-        list.add(node);
+        visitedNodes.add(node);
 
         if (leftNode != null){
-            traverseTreeInternal( list, leftNode) ;
+            traverseTreeInternal( visitedNodes, leftNode) ;
         }
 
 
         if (rightNode != null){
-            traverseTreeInternal( list, rightNode) ;
+            traverseTreeInternal( visitedNodes, rightNode) ;
         }
 
     }
