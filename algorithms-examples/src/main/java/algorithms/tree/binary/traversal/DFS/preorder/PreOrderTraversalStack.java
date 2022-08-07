@@ -1,12 +1,13 @@
 package algorithms.tree.binary.traversal.DFS.preorder;
 
 import algorithms.tree.binary.common.model.Node;
-import algorithms.tree.binary.traversal.DFS.TreeTraversal;
+import algorithms.tree.binary.traversal.DFS.AbsDFSTraversal;
+import algorithms.tree.binary.traversal.TreeTraversal;
 
 import java.util.List;
 import java.util.Stack;
 
-public class PreOrderTraversalStack extends TreeTraversal {
+public class PreOrderTraversalStack extends AbsDFSTraversal {
 
    // https://www.geeksforgeeks.org/iterative-preorder-traversal/
        /* Preorder (Root, Left, Right) : 1 2 4 5 3*/

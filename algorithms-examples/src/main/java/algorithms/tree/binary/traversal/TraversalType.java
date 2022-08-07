@@ -2,7 +2,6 @@ package algorithms.tree.binary.traversal;
 
 import algorithms.tree.binary.traversal.BFS.BFSTraversalRecursion;
 import algorithms.tree.binary.traversal.BFS.BFSTraversalStack;
-import algorithms.tree.binary.traversal.DFS.TreeTraversal;
 import algorithms.tree.binary.traversal.DFS.inorder.InOrderTraversalRecursion;
 import algorithms.tree.binary.traversal.DFS.inorder.InOrderTraversalStack;
 import algorithms.tree.binary.traversal.DFS.postorder.PostOrderTraversalRecursion;

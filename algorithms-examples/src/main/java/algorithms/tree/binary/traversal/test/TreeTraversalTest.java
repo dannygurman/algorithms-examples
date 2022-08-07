@@ -82,6 +82,13 @@ public class TreeTraversalTest {
         verifyNodesTraversalInternal(TraversalType.BFS_RECURSION, expectedOrderedValues);
     }
 
+    @Test
+    public void testNodesTraversal_BFS_ImplementedBy_Stack() {
+        BinaryTreeUtils.TreeValues[] expectedOrderedValues = {A, B, C, D , E, F ,G};
+        ////1(A), 2(B), 3(C), 4(D), 5(E), 20(F), 100(G))
+        verifyNodesTraversalInternal(TraversalType.BFS_STACK, expectedOrderedValues);
+    }
+
 
     private void verifyNodesTraversalInternal(TraversalType traversalType,
                                               BinaryTreeUtils.TreeValues[] expectedOrderedValues ) {

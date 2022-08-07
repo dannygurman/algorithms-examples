@@ -1,11 +1,10 @@
 package algorithms.tree.binary.traversal.BFS;
 
 import algorithms.tree.binary.common.model.Node;
-import algorithms.tree.binary.traversal.DFS.TreeTraversal;
 
 import java.util.List;
 //https://www.geeksforgeeks.org/level-order-tree-traversal/
-public class BFSTraversalRecursion extends TreeTraversal {
+public class BFSTraversalRecursion extends AbsBFSTraversal {
 
     @Override
     protected void traverseTreeInternal(final List<Node> visitedNodes, final Node node) {

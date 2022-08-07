@@ -1,11 +1,12 @@
 package algorithms.tree.binary.traversal.DFS.inorder;
 
 import algorithms.tree.binary.common.model.Node;
-import algorithms.tree.binary.traversal.DFS.TreeTraversal;
+import algorithms.tree.binary.traversal.DFS.AbsDFSTraversal;
+import algorithms.tree.binary.traversal.TreeTraversal;
 
 import java.util.List;
 
-public class InOrderTraversalRecursion extends TreeTraversal {
+public class InOrderTraversalRecursion extends AbsDFSTraversal {
 
        /* 4
         2
