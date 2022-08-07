@@ -6,6 +6,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/*  Time Complexity: O(n) where n is the number of nodes in the binary tree.
+    Auxiliary Space: O(n) where n is the number of nodes in the binary tree.
+    */
+
 public class BFSTraversalStack extends AbsBFSTraversal {
 
     @Override

@@ -3,7 +3,19 @@ package algorithms.tree.binary.traversal.BFS;
 import algorithms.tree.binary.common.model.Node;
 
 import java.util.List;
-//https://www.geeksforgeeks.org/level-order-tree-traversal/
+
+/*
+Time Complexity:
+O(n^2) in WORST CASE.
+ For a skewed tree, printGivenLevel() takes O(n) time where n is the number of nodes in the skewed tree.
+  So time complexity of printLevelOrder() is O(n) + O(n-1) + O(n-2) + .. + O(1) which is O(n^2).
+
+    Auxiliary Space:
+    O(n) in the worst case. For a skewed tree, printGivenLevel() uses O(n) space for call stack.
+    For a Balanced tree, the call stack uses O(log n) space (i.e., the height of the balanced tree - better than BFS stack).
+*/
+
+
 public class BFSTraversalRecursion extends AbsBFSTraversal {
 
     @Override
