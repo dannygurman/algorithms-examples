@@ -17,7 +17,7 @@ import java.util.Map;
  * O(N^2) space for the hash
  *
  */
-public class HashSolution {
+public class HashSolutionWithPairMultimap {
 
     public static void main(String[] args) {
         int arr [] = NumArrayUtils.generateNumbers();
@@ -36,6 +36,7 @@ public class HashSolution {
     }
 
     private static  void find(int[] arr , boolean stopOnFirstFind) {
+        //Note - using multimap
         Multimap  <Integer , IntPair > sumMap = generateSumMap (  arr );
         //printMap ( sumMap , arr);
 
@@ -44,13 +45,14 @@ public class HashSolution {
         for (int i=0; i< arr.length ; i++ ) {
             int keyVal =  - arr[i] ;//The negative value of the value in index i
             if (sumMap.containsKey(keyVal)); {
+                //get all matching pairs - for the index
                 Collection <IntPair> pairs = sumMap.get(keyVal);
                 for (IntPair pair : pairs) {
                     //Pairs found matching the key
                     int j = pair.first;
                     int k = pair.seconds;
                     if ( i == j || i == k) {
-                        continue;//skip - if one of the foind index same as current checked index
+                        continue;//skip - if one of the found index same as current checked index
                     }
                     //Found match in map - printing
                     NumArrayUtils.printTriple(tripleIndex, arr, i, j, k);
@@ -68,7 +70,7 @@ public class HashSolution {
     }
 
 
-    //This MULTY map contains all sums of all pairs - size ^N2
+    //This Multy map contains all sums of all pairs - size ^N2
     private static   Multimap  <Integer , IntPair > generateSumMap ( int[] arr ) {
         Multimap <Integer, IntPair> sumMap = ArrayListMultimap.create();
         for (int i = 0; i < arr.length; i++) {
