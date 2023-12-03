@@ -2,11 +2,16 @@ package algorithms.graph.numberOfIslands;
 
 public class IslandCounterDFS1AdditionalMatrix implements IslandsCounter {
 
+    // These arrays are used to get row and column numbers of 8 neighbors of a given cell
+    private final static int ROW_NEIGHBOURS[] = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
+    private final static int COLUMN_NEIGHBOURS[] = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
+
+    // The main function that returns count of islands in a given boolean 2D matrix
     @Override
     public int countIslands(int[][] matrix) {
 
         int rowCount = matrix.length;
-        int columnsCount = matrix[0].length ;//assumption - all rows - has same num of column + there is at least 1 row
+        int columnsCount = matrix[0].length;//assumption - all rows - has same num of column + there is at least 1 row
 
 
         // Make a bool array to mark visited cells.
@@ -17,55 +22,45 @@ public class IslandCounterDFS1AdditionalMatrix implements IslandsCounter {
         int count = 0;
         for (int i = 0; i < rowCount; ++i)
             for (int j = 0; j < columnsCount; ++j)
-                if (matrix[i][j] == 1  && !visited[i][j]){
+                if (matrix[i][j] == 1 && !visited[i][j]) {
                     // If a cell with value 1 is not visited yet, then new island found,
-                    // Visit all cells in this island and increment island count
-                    DFS(matrix, i, j, visited);
+                    // Visit all cells on this island and increment island count
+                    DFS(matrix, i, j, visited, rowCount, columnsCount);
                     count++;
                 }
 
         return count;
     }
 
-
-
-    // A function to check if a given cell (row, col) can
-    // be included in DFS
-    boolean isSafe(int matrix [][], final int rowId, final int colId,
-                   boolean visited[][], final int rowCount, final int columnsCount)
-    {
-        // row number is in range, column number is in range
-        // and value is 1 and not yet visited
-        return (rowId >= 0) && (row < ROW) && (col >= 0)
-                && (col < COL)
-                && (M[row][col] == 1 && !visited[row][col]);
-    }
-
     // A utility function to do DFS for a 2D boolean matrix.
-    // It only considers the 8 neighbors as adjacent
-    // vertices
-    void DFS(int M[][], int row, int col,
-             boolean visited[][])
-    {
-        // These arrays are used to get row and column
-        // numbers of 8 neighbors of a given cell
-        int rowNbr[]
-                = new int[] { -1, -1, -1, 0, 0, 1, 1, 1 };
-        int colNbr[]
-                = new int[] { -1, 0, 1, -1, 1, -1, 0, 1 };
+    // It only considers the 8 neighbors as adjacent vertices
+    private void DFS(int matrix[][], int row, int col,
+                     boolean visited[][],
+                     final int rowCount, final int columnsCount) {
 
         // Mark this cell as visited
         visited[row][col] = true;
 
         // Recur for all connected neighbours
-        for (int k = 0; k < 8; ++k)
-            if (isSafe(M, row + rowNbr[k], col + colNbr[k],
-                    visited))
-                DFS(M, row + rowNbr[k], col + colNbr[k],
-                        visited);
+        for (int k = 0; k < 8; ++k) {
+            if (isSafe(matrix, row + ROW_NEIGHBOURS[k], col + COLUMN_NEIGHBOURS[k], visited, rowCount, columnsCount)) {
+                DFS(matrix, row + ROW_NEIGHBOURS[k], col + COLUMN_NEIGHBOURS[k], visited, rowCount, columnsCount);
+            }
+        }
     }
 
-    // The main function that returns count of islands in a
-    // given boolean 2D matrix
+
+    // A function to check if a given cell (row, col) can be included in DFS
+    private boolean isSafe(int matrix[][], final int rowId, final int colId,
+                           boolean visited[][], final int rowCount, final int columnsCount) {
+        // row number is in range, column number is in range and value is 1 and not yet visited
+        return (rowId >= 0)
+                && (rowId < rowCount)
+                && (colId >= 0)
+                && (colId < columnsCount)
+                && (matrix[rowId][colId] == 1
+                && !visited[rowId][colId]);
+    }
+
 
 }
