@@ -9,7 +9,7 @@ package algorithms.graph.numberOfIslands;
  * O(ROW * COL), as to do DFS we need extra auxiliary stack space (cause of recursion).
  * Using Extra O(n*m) Space:
  */
-public class IslandCounterDFS2WithoutAdditionalMatrix implements IslandsCounter {
+public class IslandCounter_2_DFSWithoutAdditionalMatrix implements IslandsCounter {
 
 
     @Override

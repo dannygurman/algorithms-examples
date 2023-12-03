@@ -6,7 +6,7 @@ Time complexity:
  Auxiliary Space:
  O(ROW x COL), for creating an additional visited matrix.
  */
-public class IslandCounterDFS1AdditionalMatrix implements IslandsCounter {
+public class IslandCounter_1_DFSAdditionalMatrix implements IslandsCounter {
 
     // These arrays are used to get row and column numbers of 8 neighbors of a given cell
     private final static int ROW_NEIGHBOURS[] = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};

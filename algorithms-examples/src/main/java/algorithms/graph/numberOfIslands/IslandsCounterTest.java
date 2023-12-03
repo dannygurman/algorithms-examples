@@ -8,14 +8,14 @@ import static org.junit.Assert.assertEquals;
 public class IslandsCounterTest {
 
     @Test
-    public void testCountIslandsDFS1WithAdditionalMatrix() {
-        IslandsCounter islandsCounter = new IslandCounterDFS1AdditionalMatrix();
+    public void testCountIslands_1_DFSWithAdditionalMatrix() {
+        IslandsCounter islandsCounter = new IslandCounter_1_DFSAdditionalMatrix();
         testCountIslandsInternal(islandsCounter);
     }
 
     @Test
-    public void testCountIslandsDFS2WithoutAdditionalMatrix() {
-        IslandsCounter islandsCounter = new IslandCounterDFS2WithoutAdditionalMatrix();
+    public void testCountIslands_2_DFSWithoutAdditionalMatrix() {
+        IslandsCounter islandsCounter = new IslandCounter_2_DFSWithoutAdditionalMatrix();
         testCountIslandsInternal(islandsCounter);
     }
 
