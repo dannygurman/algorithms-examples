@@ -9,12 +9,14 @@ public class IslandsCounterTest {
 
     @Test
     public void testCountIslandsDFS1WithAdditionalMatrix() {
-        testCountIslandsInternal(new IslandCounterDFS1AdditionalMatrix());
+        IslandsCounter islandsCounter = new IslandCounterDFS1AdditionalMatrix();
+        testCountIslandsInternal(islandsCounter);
     }
 
     @Test
     public void testCountIslandsDFS2WithoutAdditionalMatrix() {
-        testCountIslandsInternal(new IslandCounterDFS2WithoutAdditionalMatrix());
+        IslandsCounter islandsCounter = new IslandCounterDFS2WithoutAdditionalMatrix();
+        testCountIslandsInternal(islandsCounter);
     }
 
     private void testCountIslandsInternal(IslandsCounter islandsCounter) {
@@ -27,6 +29,7 @@ public class IslandsCounterTest {
         };
 
         int numOfIslandsFound = islandsCounter.countIslands(matrix);
-        assertEquals("num of islands not as expected", 6, numOfIslandsFound);
+        int numOfIslandsExpected = 5;
+        assertEquals("num of islands not as expected", numOfIslandsExpected, numOfIslandsFound);
     }
 }

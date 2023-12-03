@@ -1,5 +1,11 @@
 package algorithms.graph.numberOfIslands;
 
+/**
+Time complexity:
+ O(ROW x COL), where ROW is the number of rows and COL is the number of columns in the given matrix.
+ Auxiliary Space:
+ O(ROW x COL), for creating an additional visited matrix.
+ */
 public class IslandCounterDFS1AdditionalMatrix implements IslandsCounter {
 
     // These arrays are used to get row and column numbers of 8 neighbors of a given cell
@@ -11,7 +17,8 @@ public class IslandCounterDFS1AdditionalMatrix implements IslandsCounter {
     public int countIslands(int[][] matrix) {
 
         int rowCount = matrix.length;
-        int columnsCount = matrix[0].length;//assumption - all rows - has same num of column + there is at least 1 row
+        //assumption - all rows - has same num of column + there is at least 1 row
+        int columnsCount = matrix[0].length;
 
 
         // Make a bool array to mark visited cells.
@@ -20,14 +27,16 @@ public class IslandCounterDFS1AdditionalMatrix implements IslandsCounter {
 
         // Initialize count as 0 and traverse through the  all cells of given matrix
         int count = 0;
-        for (int i = 0; i < rowCount; ++i)
-            for (int j = 0; j < columnsCount; ++j)
+        for (int i = 0; i < rowCount; ++i) {
+            for (int j = 0; j < columnsCount; ++j) {
                 if (matrix[i][j] == 1 && !visited[i][j]) {
                     // If a cell with value 1 is not visited yet, then new island found,
                     // Visit all cells on this island and increment island count
                     DFS(matrix, i, j, visited, rowCount, columnsCount);
                     count++;
                 }
+            }
+        }
 
         return count;
     }
@@ -43,8 +52,12 @@ public class IslandCounterDFS1AdditionalMatrix implements IslandsCounter {
 
         // Recur for all connected neighbours
         for (int k = 0; k < 8; ++k) {
-            if (isSafe(matrix, row + ROW_NEIGHBOURS[k], col + COLUMN_NEIGHBOURS[k], visited, rowCount, columnsCount)) {
-                DFS(matrix, row + ROW_NEIGHBOURS[k], col + COLUMN_NEIGHBOURS[k], visited, rowCount, columnsCount);
+            if (isSafe(matrix, row + ROW_NEIGHBOURS[k], col + COLUMN_NEIGHBOURS[k],
+                    visited,
+                    rowCount, columnsCount)) {
+                DFS(matrix, row + ROW_NEIGHBOURS[k], col + COLUMN_NEIGHBOURS[k],
+                        visited,
+                        rowCount, columnsCount);
             }
         }
     }
