@@ -35,10 +35,12 @@ class EggDrop_Recursion {
             // In all three situations, we tested 20 floors
             int min_trails_upper_flower = eggDropMinimalTrails(n_eggs, k_floors - floor_id);
 
-            //
-            resultForFloorIndex = Math.max(min_trails_lower_flower_minus_egg,min_trails_upper_flower);
+            //taking the worst case
+            resultForFloorIndex = Math.max(min_trails_lower_flower_minus_egg, min_trails_upper_flower);
+
+            //this flower got minimum trials
             if (resultForFloorIndex < minimumTrials)
-                //update minimum
+                //update minimum - this floor got the optmal (minimum) num of trials
                 minimumTrials = resultForFloorIndex;
         }
 
