@@ -15,7 +15,8 @@ out that the 36th-floor do not cause an egg to break.
 
 If only one egg is available and we wish to be sure of obtaining the right result,
  the experiment can be carried out in only one way.
-  Drop the egg from the first-floor window; if it survives, drop it from the second floor window. Continue upward until it breaks. In the worst case, this method may require 36 droppings.
+  Drop the egg from the first-floor window; if it survives, drop it from the second floor window.
+   Continue upward until it breaks. In the worst case, this method may require 36 droppings.
 
  Suppose 2 eggs are available. What is the least number of egg-droppings that is guaranteed to work in all cases?
 The problem is not actually to find the critical floor, but merely to decide floors from which eggs should be dropped
