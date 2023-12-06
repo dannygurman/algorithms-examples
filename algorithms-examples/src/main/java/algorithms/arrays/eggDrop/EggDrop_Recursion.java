@@ -50,10 +50,9 @@ class EggDrop_Recursion {
     // Driver code
     public static void main(String args[]) {
         int n_eggs = 2, k_floors = 100;
-        System.out.print("Minimum number of "
-                + "trials in worst case with "
-                + n_eggs + " eggs and " + k_floors
-                + " floors is " + eggDropMinimalTrails(n_eggs, k_floors));
+        int minTrialNum = eggDropMinimalTrails(n_eggs, k_floors);
+        System.out.print("Minimum number of trials in worst case with "
+                + n_eggs + " eggs and " + k_floors  + " floors is "  + minTrialNum);
     }
 
 }
