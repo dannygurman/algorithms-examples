@@ -12,7 +12,7 @@ class EggDrop_DynamicPrograming {
 		/* A 2D table where entry eggFloor[i][j] will represent minimum
 			number of trials needed for i eggs and j floors. */
         int eggFloor[][] = new int[n_eggs + 1][k_floors + 1];
-        int res;
+        int resultForFloorIndex;
         int egg_count, floor_id, tmp_floor_id;
 
         // We need one trial for one floor and 0 trials for 0 floors
@@ -29,6 +29,8 @@ class EggDrop_DynamicPrograming {
 
         // Fill rest of the entries in table using optimal substructure property
         for (egg_count = 2; egg_count <= n_eggs; egg_count++) {
+
+          //Iterating all floors
             for (floor_id = 2; floor_id <= k_floors; floor_id++) {
                //First - init to max
                 eggFloor[egg_count][floor_id] = Integer.MAX_VALUE;
@@ -52,10 +54,12 @@ class EggDrop_DynamicPrograming {
                     int min_trails_upper_flower =  eggFloor[egg_count][floor_id - tmp_floor_id];
 
                     //Adding '1'  - for this trial
-                    res = 1 + Math.max(min_trails_lower_flower_minus_egg, min_trails_upper_flower);
+                    resultForFloorIndex = 1 + Math.max(min_trails_lower_flower_minus_egg, min_trails_upper_flower);
 
-                    if (res < eggFloor[egg_count][floor_id])
-                        eggFloor[egg_count][floor_id] = res;
+                    // droping from this floor got minimum trials
+                    if (resultForFloorIndex < eggFloor[egg_count][floor_id])
+                        //updating the matrix cell (for num of eggs and drops with result)
+                        eggFloor[egg_count][floor_id] = resultForFloorIndex;
                 }
             }
         }
