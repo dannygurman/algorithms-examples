@@ -31,8 +31,6 @@ public class UsingSort_1_DuplicateAndMissingFinder extends DuplicateAndMissingFi
             }
             //Updating previous
             previous = current;
-
-
         }
         return result;
     }
