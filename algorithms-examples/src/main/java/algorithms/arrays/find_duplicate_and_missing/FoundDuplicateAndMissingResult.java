@@ -1,8 +1,12 @@
 package algorithms.arrays.find_duplicate_and_missing;
 
-import lombok.Data;
 
-@Data
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Getter
+@Setter
 public class FoundDuplicateAndMissingResult {
 
     private Integer missing;

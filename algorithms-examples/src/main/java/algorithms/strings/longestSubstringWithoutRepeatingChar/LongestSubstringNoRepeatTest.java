@@ -11,6 +11,14 @@ public class LongestSubstringNoRepeatTest {
         verifyLongestSubstringNoRepeatInternal(longestSubstringNoRepeatHandler);
     }
 
+    @Test
+    public void testLongestSubstringNoRepeatTest_Approach2(){
+        LongestSubstringNoRepeatHandler longestSubstringNoRepeatHandler = new LongestSubstringNoRepeatHandler_2();
+        verifyLongestSubstringNoRepeatInternal(longestSubstringNoRepeatHandler);
+    }
+
+
+
     private void verifyLongestSubstringNoRepeatInternal(LongestSubstringNoRepeatHandler longestSubstringNoRepeatHandler){
         verifyLongestSubstringNoRepeatInternal(longestSubstringNoRepeatHandler,"abcabcbb", 3);
         verifyLongestSubstringNoRepeatInternal(longestSubstringNoRepeatHandler,"bbbbb", 1);
