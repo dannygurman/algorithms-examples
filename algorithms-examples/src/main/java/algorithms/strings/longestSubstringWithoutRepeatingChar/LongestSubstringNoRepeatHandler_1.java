@@ -9,6 +9,7 @@ public class LongestSubstringNoRepeatHandler_1 implements LongestSubstringNoRepe
     public int lengthOfLongestSubstring(final String str) {
         int strLength = str.length();
         int maxLength = 0;
+
         Set<Character> charSet = new HashSet<>();
 
         int left = 0;
