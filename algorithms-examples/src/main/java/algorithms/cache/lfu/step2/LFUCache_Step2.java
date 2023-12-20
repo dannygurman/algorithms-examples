@@ -40,7 +40,7 @@ public class LFUCache_Step2 {
 
         //In general list remove - Removes the first occurrence of the specified element from this list - mot O(1)
         //removing the key from the list
-        matchingItemsToFrequencyList.remove(new Integer(key));
+        matchingItemsToFrequencyList.remove(Integer.valueOf(key));
 
         if (matchingItemsToFrequencyList.size() == 0) {
             // remove from frequencies map if list is empty after deletion
