@@ -50,8 +50,10 @@ public class IslandCounter_2_DFSWithoutAdditionalMatrix implements IslandsCounte
         }
 
          if (matrix[rowId][columnId] == 1) {
+
              //marking as 0 !
             matrix[rowId][columnId] = 0;
+
             DFS(matrix, rowId + 1, columnId, rowCount, columnCount); // right side traversal
             DFS(matrix, rowId - 1, columnId, rowCount, columnCount); // left side traversal
             DFS(matrix, rowId, columnId + 1, rowCount, columnCount); // upward side traversal
