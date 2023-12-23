@@ -3,8 +3,9 @@ package algorithms.KthLargestElement;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-//PriorityQueue - An unbounded priority queue based on a priority heap
-//The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time
+//PriorityQueue (from Javadoc)- An unbounded priority queue based on a priority heap
+//The elements of the priority queue are ordered according to their natural ordering,
+// or by a Comparator provided at queue construction time
 
 //A priority queue does not permit null elements.
 
@@ -20,13 +21,13 @@ public class KLargestElementUsingPriorityQueue {
 
     public static int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> q = new PriorityQueue<>(k);
-        for(int i: nums){
+        for(int currentNum: nums){
             //Inserts the specified element into this priority queue.
-            q.offer(i);
+            q.offer(currentNum);
 
             //The q size should remain like the size of k
-            //Therfore taking out the value of the head - with the least element
-            if(q.size()>k){
+            //Therefore taking out the value of the head - with the least element
+            if(q.size() > k){
                 //Poll - Retrieves and removes the head of this queue, or returns null if this queue is empty
                 q.poll();
             }
