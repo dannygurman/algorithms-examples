@@ -20,7 +20,8 @@ public class LetterCombinationOfPhoneNumber {
         LinkedList<String> foundCombinations = new LinkedList<>();
         foundCombinations.add("");
         for (int i = 0; i < digits.length(); i++) {
-            int digit = Character.getNumericValue(digits.charAt(i));
+            char digitChar = digits.charAt(i);
+            int digit = Character.getNumericValue(digitChar);
             String matchingStringInMapForDigit = MAPPING[digit];
             char[] charsInDigitMapping = matchingStringInMapForDigit.toCharArray();
 
