@@ -36,26 +36,38 @@ public class HashSolutionWithPairMultimap {
     }
 
     private static  void find(int[] arr , boolean stopOnFirstFind) {
-        //Note - using multimap
-        Multimap  <Integer , IntPair > sumMap = generateSumMap (  arr );
+     /*   Note - using multimap
+        From com.google.common.collect jdoc:
+        It is A collection that maps keys to values, similar to Map,
+        but in which each key may be associated with multiple values.
+         You can visualize the contents of a multimap either as a map from keys to nonempty collections of values:
+        a → 1, 2
+        b → 3
+        or as a single "flattened" collection of key-value pairs:
+        a → 1
+        a → 2
+        b → 3*/
+
+
+        Multimap  <Integer , IntPair > sumToPaitIndexeaMultiMap = generateSumToPairIndexesMultiMap(  arr );
         //printMap ( sumMap , arr);
 
         boolean found = false;
         int tripleIndex = 1;
         for (int i=0; i< arr.length ; i++ ) {
             int keyVal =  - arr[i] ;//The negative value of the value in index i
-            if (sumMap.containsKey(keyVal)); {
+            if (sumToPaitIndexeaMultiMap.containsKey(keyVal)); {
                 //get all matching pairs - for the index
-                Collection <IntPair> pairs = sumMap.get(keyVal);
+                Collection <IntPair> pairs = sumToPaitIndexeaMultiMap.get(keyVal);
                 for (IntPair pair : pairs) {
                     //Pairs found matching the key
-                    int j = pair.first;
-                    int k = pair.seconds;
-                    if ( i == j || i == k) {
+                    int pairFirstIndex = pair.first;
+                    int pairSecinsIndex = pair.seconds;
+                    if ( i == pairFirstIndex || i == pairSecinsIndex) {
                         continue;//skip - if one of the found index same as current checked index
                     }
                     //Found match in map - printing
-                    NumArrayUtils.printTriple(tripleIndex, arr, i, j, k);
+                    NumArrayUtils.printTriple(tripleIndex, arr, i, pairFirstIndex, pairSecinsIndex);
                     tripleIndex++;//Increasing num of founds triples -//relevant If need to found more then one and pring indexes
 
                     if (stopOnFirstFind) {
@@ -70,18 +82,18 @@ public class HashSolutionWithPairMultimap {
     }
 
 
-    //This Multy map contains all sums of all pairs - size ^N2
-    private static   Multimap  <Integer , IntPair > generateSumMap ( int[] arr ) {
-        Multimap <Integer, IntPair> sumMap = ArrayListMultimap.create();
+    //This Multi map contains all sums of all pairs - size ^N2
+    private static   Multimap  <Integer , IntPair > generateSumToPairIndexesMultiMap(int[] arr ) {
+        Multimap <Integer, IntPair> sumToPairIndexesMultiMap = ArrayListMultimap.create();
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
                 int sum = arr[i] + arr[j];
-                sumMap.put(sum, new IntPair(i, j));
+                sumToPairIndexesMultiMap.put(sum, new IntPair(i, j));
             }
         }
-        System.out.println("Array length:"+arr.length +" Map size "+sumMap.size());
-        printMap(sumMap, arr);
-        return sumMap;
+        System.out.println("Array length:"+arr.length +" Map size "+sumToPairIndexesMultiMap.size());
+        printMap(sumToPairIndexesMultiMap, arr);
+        return sumToPairIndexesMultiMap;
     }
 
 
