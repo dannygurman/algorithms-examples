@@ -1,10 +1,10 @@
 package algorithms.graph.numberOfIslands;
 
 /**
-Time complexity:
- O(ROW x COL), where ROW is the number of rows and COL is the number of columns in the given matrix.
- Auxiliary Space:
- O(ROW x COL), for creating an additional visited matrix.
+ * Time complexity:
+ * O(ROW x COL), where ROW is the number of rows and COL is the number of columns in the given matrix.
+ * Auxiliary Space:
+ * O(ROW x COL), for creating an additional visited matrix.
  */
 public class IslandCounter_1_DFSAdditionalMatrix implements IslandsCounter {
 
@@ -52,20 +52,31 @@ public class IslandCounter_1_DFSAdditionalMatrix implements IslandsCounter {
 
         // Recur for all connected neighbours
         for (int k = 0; k < 8; ++k) {
-            if (isSafe(matrix, row + ROW_NEIGHBOURS[k], col + COLUMN_NEIGHBOURS[k],
+            int rowNeighbour = row + ROW_NEIGHBOURS[k];
+            int columnNeighbour = col + COLUMN_NEIGHBOURS[k];
+
+            boolean shouldBeIncludedInDFS = shouldBeIncludedInDF(matrix,
+                    rowNeighbour,
+                    columnNeighbour,
                     visited,
-                    rowCount, columnsCount)) {
-                DFS(matrix, row + ROW_NEIGHBOURS[k], col + COLUMN_NEIGHBOURS[k],
+                    rowCount,
+                    columnsCount);
+
+            if (shouldBeIncludedInDFS) {
+                DFS(matrix,
+                        rowNeighbour,
+                        columnNeighbour,
                         visited,
-                        rowCount, columnsCount);
+                        rowCount,
+                        columnsCount);
             }
         }
     }
 
 
     // A function to check if a given cell (row, col) can be included in DFS
-    private boolean isSafe(int matrix[][], final int rowId, final int colId,
-                           boolean visited[][], final int rowCount, final int columnsCount) {
+    private boolean shouldBeIncludedInDF(int matrix[][], final int rowId, final int colId,
+                                         boolean visited[][], final int rowCount, final int columnsCount) {
         // row number is in range, column number is in range and value is 1 and not yet visited
         return (rowId >= 0)
                 && (rowId < rowCount)
