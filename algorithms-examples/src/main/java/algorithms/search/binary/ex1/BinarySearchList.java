@@ -32,7 +32,7 @@ public class BinarySearchList {
     /**
      * Returns the index of the specified key in the specified array.
      *
-     * @param  listInts the list of integers, must be sorted in ascending order
+     * @param  listInts the list of integers, must be SORTED(!) in ascending order
      * @param  key the search key
      * @return index of key in array {@code a} if present; {@code -1} otherwise
      */
@@ -66,8 +66,8 @@ public class BinarySearchList {
      */
     public static void main(String[] args) {
 
-        // read the integers from a file
         int key = 3;
+        //read the integers from a file at  algorithms-examples\algorithms-examples\src\main\resources\in_ints.txt
         FileReader fileUtils = new FileReader("in_ints.txt");
         List <Integer> whitelist = fileUtils.readInts(true);
 
@@ -75,7 +75,7 @@ public class BinarySearchList {
         Collections.sort(whitelist);
 
         System.out.println("\nsorted:");
-        System.out.println(whitelist.toString());
+        System.out.println(whitelist);
 
         System.out.println("key:" + key);
         System.out.println("key index:" + BinarySearchList.indexOf(whitelist, key));
