@@ -13,8 +13,8 @@ public class PlusOne {
     }
 
     public static int [] plusOne (int [] digits) {
-        int n = digits.length;
-        for  (int i = n - 1 ; i >= 0 ; i-- ){
+        int digitsLength = digits.length;
+        for  (int i = digitsLength - 1 ; i >= 0 ; i-- ){
             if ( digits[i] < 9 ) {
                 //digit below 9 - just Increasing digit and returning
                 digits [i]++;
@@ -24,7 +24,7 @@ public class PlusOne {
             digits [i] = 0; //setting current digit to 0 and adding 1 to next digit (by moving to next iteration
         }
         //if we got here we need to add digit  000000 n times + 1
-        int [] newNumber = new int [ n + 1];
+        int [] newNumber = new int [ digitsLength + 1];
         newNumber [0] = 1 ; //first digit is 1 - other 0
         return  newNumber;
 
