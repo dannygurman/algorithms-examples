@@ -14,10 +14,10 @@ public class TwoSortedArrayMedianFinderTest {
 
 
     public void verifyTwoSortedArrayMedianFinderInternal(TwoSortedArrayMedianFinder twoSortedArrayMedianFinder){
-        int [] array1 = new int[]{1,2,3,4,6,9};
+        int [] array1 = new int[]{1,3,4,6,9};
         int [] array2 = new int[]{2,5,7,8,10};
         double expectedMedian = 5.5;
         double foundMedian = twoSortedArrayMedianFinder.getSortedArraysMedian(array1, array2);
-        Assert.assertEquals("median not as expected", expectedMedian, foundMedian);
+        Assert.assertEquals("median not as expected", expectedMedian, foundMedian,0);
     }
 }
