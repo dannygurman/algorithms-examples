@@ -1,5 +1,6 @@
 package algorithms.arrays.medianOfTwoSortedArray;
 
+import algorithms.arrays.medianOfTwoSortedArray.countingWhileMerging.TwoSortedArrayMedianFinder_CountingWhileMerging;
 import algorithms.arrays.medianOfTwoSortedArray.mergingExtraSpace.TwoSortedArrayMedianFinder_MergingWithExtraSpace;
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,6 +10,12 @@ public class TwoSortedArrayMedianFinderTest {
     @Test
     public void testTwoSortedArrayMedianFinder_MergingWithExtraSpace(){
         TwoSortedArrayMedianFinder twoSortedArrayMedianFinder = new TwoSortedArrayMedianFinder_MergingWithExtraSpace();
+        verifyTwoSortedArrayMedianFinderInternal(twoSortedArrayMedianFinder);
+    }
+
+    @Test
+    public void testTwoSortedArrayMedianFinder_CountingWhileMerging(){
+        TwoSortedArrayMedianFinder twoSortedArrayMedianFinder = new TwoSortedArrayMedianFinder_CountingWhileMerging();
         verifyTwoSortedArrayMedianFinderInternal(twoSortedArrayMedianFinder);
     }
 

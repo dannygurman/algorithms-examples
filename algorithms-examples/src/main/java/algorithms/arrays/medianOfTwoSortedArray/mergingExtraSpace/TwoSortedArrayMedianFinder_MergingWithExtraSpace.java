@@ -33,7 +33,7 @@ public class TwoSortedArrayMedianFinder_MergingWithExtraSpace implements TwoSort
             indexMerged++;
         }
 
-       return (double) ((mergedArray[n-1] + mergedArray[n])) / 2;
+       return ((double)(mergedArray[n-1] + mergedArray[n]) / 2);
 
     }
 }
