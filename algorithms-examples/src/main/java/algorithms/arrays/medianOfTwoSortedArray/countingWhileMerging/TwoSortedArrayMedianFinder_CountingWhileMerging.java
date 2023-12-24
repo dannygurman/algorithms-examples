@@ -22,10 +22,12 @@ public class TwoSortedArrayMedianFinder_CountingWhileMerging implements TwoSorte
                 indexB++;
             }
 
+            //All members in Array A are smaller than members in array B
             if (indexA == n) {
                 middle1 = middle2;
                 middle2 = B[0];
                 break;
+                //All members in Array B are smaller than members in array A
             } else if (indexB == n) {
                 middle1 = middle2;
                 middle2 = A[0];
