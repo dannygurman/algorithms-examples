@@ -1,4 +1,4 @@
-package algorithms.arrays.arrayshuffle.ex1;
+package algorithms.arrays.arrayshuffle.ex2;
 
 import java.util.Arrays;
 import java.util.Random;
