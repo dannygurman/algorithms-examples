@@ -1,13 +1,15 @@
 package algorithms.arrays.findMinimumNumOfCoinsGivenValue;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 public class FindMinimumOfCoinsTest {
 
-    public  void testFindMinimumCoinsRecursion1(){
-
+    @Test
+    public void when_FindMinimumCoins_Recursion1_Than_AsExpected(){
+        MinimumCoinsFinder minimumCoinsFinder = new MinimumCoinsFinderByRecursion1();
+        findMinimumCoinsInternal(minimumCoinsFinder);
     }
-
 
 
     public  void findMinimumCoinsInternal(final MinimumCoinsFinder minimumCoinsFinder){
