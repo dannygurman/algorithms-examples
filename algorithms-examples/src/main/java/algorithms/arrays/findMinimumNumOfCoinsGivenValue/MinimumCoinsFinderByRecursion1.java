@@ -2,9 +2,20 @@ package algorithms.arrays.findMinimumNumOfCoinsGivenValue;
 
 // Time Complexity: O(m^V)
 // Auxiliary Space: O(V)
-public class MinimumCoinsFinderByRecursion1 implements MinimumCoinsFinder{
+public class MinimumCoinsFinderByRecursion1 implements MinimumCoinsFinder {
+
     @Override
     public int findMinimumCoins(int[] coins, int value) {
+      int minCoins = findMinimumCoinsInternal(coins, value);
+      if (minCoins == Integer.MAX_VALUE) {
+          minCoins = CHANGE_NOT_POSSIBLE_MARK;//Legit limitation
+        }
+      return minCoins;
+    }
+
+
+
+    public int findMinimumCoinsInternal(int[] coins, int value) {
         // base case
         if (value == 0){
             return 0;
@@ -16,7 +27,7 @@ public class MinimumCoinsFinderByRecursion1 implements MinimumCoinsFinder{
         // Try every coin that has smaller value than value
         for (int i=0; i< coins.length; i++) {
             if (coins[i] <= value) {
-                int sub_res = findMinimumCoins(coins, value-coins[i]);
+                int sub_res = findMinimumCoinsInternal(coins, value-coins[i]);
 
                 // Check for INT_MAX to avoid overflow and see if result can be minimized
                 //meaning sub_res + 1 < res (1 for current coin)

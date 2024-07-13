@@ -23,7 +23,11 @@ public class MinimumCoinsFinderByDynamicProgramming1 implements MinimumCoinsFind
         Arrays.fill(dp, CHANGE_NOT_POSSIBLE_MARK); // Initialize DP table with -1
 
         // Call the utility function to solve the problem
-        return minCoinsUtil(coins, value, dp);
+        int minCoins =  minCoinsUtil(coins, value, dp);
+        if (minCoins == Integer.MAX_VALUE) {
+            minCoins = CHANGE_NOT_POSSIBLE_MARK;//Legit limitation
+        }
+        return minCoins;
     }
 
 
