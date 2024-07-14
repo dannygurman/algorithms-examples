@@ -23,7 +23,7 @@ public interface  LRUCache {
 
     void set(int key, int value);
 
-      void printLinkedList () ;
+    void printLinkedList () ;
 
 
 }

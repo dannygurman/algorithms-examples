@@ -5,9 +5,8 @@ class EggDrop_Recursion {
 
     /* Function to get minimum number of trials needed in worst case with n  eggs and k floors */
     static int eggDropMinimalTrails(int n_eggs, int k_floors) {
-        // If there are no floors, then
-        // no trials needed. OR if there
-        // is one floor, one trial needed.
+        // If there are no floors, then no trials needed.
+        // OR if there is one floor, one trial needed.
         if (k_floors == 1 || k_floors == 0) {
             return k_floors;
         }

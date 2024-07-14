@@ -16,7 +16,8 @@ public class UsingSort_1_DuplicateAndMissingFinder extends DuplicateAndMissingFi
 
 
     public FoundDuplicateAndMissingResult findDuplicateAndMissing(int[] numbers) {
-       //First sorting - o(nlogn) time
+
+        //First sorting - o(nlogn) time
         Arrays.sort(numbers);
 
         int previous = 0;
