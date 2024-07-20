@@ -11,8 +11,8 @@ public class ModernFisherYatesAlgorithm {
 
         // Starting from the last element and swapping one by one.
         for (int i = array.length - 1; i > 0; i--) {
-            // Pick a random index from 0 to i
-            int j = rd.nextInt(i + 1);
+            // Pick a random index from 0 to i (not included)
+            int j = rd.nextInt(i);
             // Swap array[i] with the element at random index
             swap(array, i, j);
 
