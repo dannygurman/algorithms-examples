@@ -5,6 +5,11 @@ import algorithms.linkedlist.findCircleInLinkedList.model.Node;
 
 public class LinkListCycleFinderUsingFlag implements LinkListCycleFinder {
 
+/*
+   Time complexity: O(N), Only one traversal of the loop is needed.
+    Auxiliary Space: O(1)
+    */
+
     @Override
     public boolean detectLoop(Node head) {
 
