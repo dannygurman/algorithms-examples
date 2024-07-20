@@ -226,20 +226,21 @@ public class BinarySearchTreeUtils {
     * looking at each node only once.
     *
     * */
-    private static boolean isBSTV2Util(Node node, int min, int max)  {
+    private static boolean isBSTV2Util(Node node, int minAllowed, int maxAllowed)  {
         /* an empty tree is BST */
         if (node == null) {
             return true;
         }
 
         /* false if this node violates the min/max constraints */
-        if (node.value < min || node.value > max) {
+        if (node.value < minAllowed || node.value > maxAllowed) {
             return false;
         }
 
         /* otherwise check the subtrees recursively tightening the min/max constraints */
         // Allow only distinct values
-        return (isBSTV2Util(node.left, min, node.value-1) && isBSTV2Util(node.right, node.value+1, max));
+        return (isBSTV2Util(node.left, minAllowed, node.value-1)
+                && isBSTV2Util(node.right, node.value+1, maxAllowed));
     }
 
 
