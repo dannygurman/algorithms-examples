@@ -35,8 +35,8 @@ public class KLargestElementUsingSelection {
 
         while (lo < hi) {
             final int splitIndex = partition( nums , lo , hi);
-            //All element with index lower then splitIndex - have lower value the the one in splitIndex
-            //All element with index higher then splitIndex - have higher value the the one in splitIndex
+            //All element with index lower then splitIndex - have lower value the  one in splitIndex
+            //All element with index higher then splitIndex - have higher value the  one in splitIndex
 
             System.out.println("Split index:" + splitIndex);
 
@@ -51,7 +51,7 @@ public class KLargestElementUsingSelection {
             }
         }
 
-        return nums [ k];
+        return nums[k];
     }
 
 
@@ -60,7 +60,7 @@ public class KLargestElementUsingSelection {
         int i = lo;
         int j = hi + 1;
 
-        int pivotVal =  a[lo];
+        int pivotVal =  a[pivotIndex];
 
         while (true) {
             //Moving leftmark right while values lower then pivot
