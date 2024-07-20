@@ -1,4 +1,7 @@
-package algorithms.linkedlist.findCircleInLinkedList;
+package algorithms.linkedlist.findCircleInLinkedList.hashing;
+
+import algorithms.linkedlist.findCircleInLinkedList.LinkListCycleFinder;
+import algorithms.linkedlist.findCircleInLinkedList.model.Node;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,8 +15,10 @@ public class LinkListCycleFinderUsingHash implements LinkListCycleFinder {
 
     @Override
     public boolean detectLoop(final Node head) {
-        Set<Node> nodeSet = new HashSet<Node>();
+
         Node currentNode = head;
+
+        Set<Node> nodeSet = new HashSet<Node>();
 
         while (currentNode != null) {
             // If we have already has this node in hashmap it means there is a cycle

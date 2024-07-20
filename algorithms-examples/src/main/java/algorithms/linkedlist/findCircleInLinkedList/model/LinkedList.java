@@ -1,4 +1,4 @@
-package algorithms.linkedlist.findCircleInLinkedList;
+package algorithms.linkedlist.findCircleInLinkedList.model;
 
 public class LinkedList {
 

@@ -1,5 +1,8 @@
 package algorithms.linkedlist.findCircleInLinkedList;
 
+import algorithms.linkedlist.findCircleInLinkedList.flag.LinkListCycleFinderUsingFlag;
+import algorithms.linkedlist.findCircleInLinkedList.hashing.LinkListCycleFinderUsingHash;
+import algorithms.linkedlist.findCircleInLinkedList.model.LinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,6 +13,12 @@ public class LinkListCycleFindTest {
          LinkListCycleFinder linkListCycleFinder = new LinkListCycleFinderUsingHash();
          testInternal(linkListCycleFinder);
      }
+
+    @Test
+    public void testUsingHashFlag() {
+        LinkListCycleFinder linkListCycleFinder = new LinkListCycleFinderUsingFlag();
+        testInternal(linkListCycleFinder);
+    }
 
 
     private void testInternal(LinkListCycleFinder linkListCycleFinder){
