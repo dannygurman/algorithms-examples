@@ -1,4 +1,4 @@
-package algorithms.KthLargestElement;
+package algorithms.arrays.KthLargestElement;
 
 import algorithms.tree.binaryHeap.MinHeap;
 

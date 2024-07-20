@@ -1,4 +1,4 @@
-package algorithms.KthLargestElement;
+package algorithms.arrays.KthLargestElement;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

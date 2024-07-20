@@ -1,4 +1,4 @@
-package algorithms.KthLargestElement;
+package algorithms.arrays.KthLargestElement;
 
 //Build a Max Heap tree in O(n)
 //Use Extract Max k times to get k maximum elements from the Max Heap O(klogn)

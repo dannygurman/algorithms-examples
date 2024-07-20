@@ -1,4 +1,4 @@
-package algorithms.KthLargestElement;
+package algorithms.arrays.KthLargestElement;
 
 //The smart approach for this prpblem to use the selection algorithm
 // (based on the partition method - the same one as used in quick sort)
@@ -9,7 +9,6 @@ package algorithms.KthLargestElement;
 
 import algorithms.utils.AlgorithmUtils;
 
-import java.security.AlgorithmParametersSpi;
 import java.util.Random;
 
 public class KLargestElementUsingSelection {
