@@ -228,12 +228,15 @@ public class BinarySearchTreeUtils {
     * */
     private static boolean isBSTV2Util(Node node, int min, int max)  {
         /* an empty tree is BST */
-        if (node == null)
+        if (node == null) {
             return true;
+        }
+
         /* false if this node violates the min/max constraints */
-        if (node.value< min || node.value> max) {
+        if (node.value < min || node.value > max) {
             return false;
         }
+
         /* otherwise check the subtrees recursively tightening the min/max constraints */
         // Allow only distinct values
         return (isBSTV2Util(node.left, min, node.value-1) && isBSTV2Util(node.right, node.value+1, max));
@@ -245,21 +248,23 @@ public class BinarySearchTreeUtils {
         return isBST_V3Util(root, null, null);
     }
 
-    private static boolean isBST_V3Util(Node node, Node l, Node r) {
+
+    private static boolean isBST_V3Util(Node node, Node left_ancestor, Node right_ancestor) {
         // Base condition{
         if (node == null) {
             return true;
         }
         // if left node exist then check it has correct data or not -i.e. left node's data should be less than root's data
-        if (l != null && node.value <= l.value) {
+        if (left_ancestor != null && node.value <= left_ancestor.value) {
             return false;
         }
         // if right node exist then check it has correct data or not -i.e. right node's data  should be greater than root's data
-        if (r != null && node.value >= r.value) {
+        if (right_ancestor != null && node.value >= right_ancestor.value) {
             return false;
         }
         // check recursively for every node.
-        return (isBST_V3Util(node.left, l, node) && isBST_V3Util(node.right, node, r));
+        return (isBST_V3Util(node.left, left_ancestor, node)
+                && isBST_V3Util(node.right, node, right_ancestor));
     }
 
 }
