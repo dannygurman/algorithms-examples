@@ -1,6 +1,6 @@
 package algorithms.arrays.KthLargestElement;
 
-//The smart approach for this prpblem to use the selection algorithm
+//The smart approach for this problem to use the selection algorithm
 // (based on the partition method - the same one as used in quick sort)
 
 //Complexity O(N) best case / O(N^2) worst case running time + O(1) memory.System
@@ -34,8 +34,8 @@ public class KLargestElementUsingSelection {
 
         while (lo < hi) {
             final int splitIndex = partition( nums , lo , hi);
-            //All element with index lower then splitIndex - have lower value the  one in splitIndex
-            //All element with index higher then splitIndex - have higher value the  one in splitIndex
+            //All element with index lower than splitIndex - have lower value the  one in splitIndex
+            //All element with index higher than splitIndex - have higher value the  one in splitIndex
 
             System.out.println("Split index:" + splitIndex);
 
@@ -62,10 +62,10 @@ public class KLargestElementUsingSelection {
         int pivotVal =  a[pivotIndex];
 
         while (true) {
-            //Moving leftmark right while values lower then pivot
-            while ( (i < hi) &&  (a[++i] < pivotVal));
+            //Moving left-mark right while values lower then pivot
+            while ( (i < hi) && (a[++i] < pivotVal));
 
-            while ( (j > lo) &&  (a[--j] > pivotVal  ));
+            while ( (j > lo) && (a[--j] > pivotVal  ));
 
             if ( i >= j ) {
                 //split point found
@@ -74,6 +74,7 @@ public class KLargestElementUsingSelection {
             //See quicksort
             AlgorithmUtils.swap(a , i , j);
         }
+
         //j is split point
         AlgorithmUtils.swap(a , pivotIndex , j);
 
