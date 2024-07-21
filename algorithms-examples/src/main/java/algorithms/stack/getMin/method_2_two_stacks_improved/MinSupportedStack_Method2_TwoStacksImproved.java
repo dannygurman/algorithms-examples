@@ -46,7 +46,7 @@ public class MinSupportedStack_Method2_TwoStacksImproved extends MinSupportedSta
 
             //* push only when the incoming element of main stack is smaller
             //than OR EQUAL to top of auxiliary stack
-            //Including equal so when popping we could now if the popped item is the minimal *
+            //Including equal so when popping we could know if the popped item is the minimal *
             if (valToPush <= peekedMinimum) {
                 minimumsStack.push(valToPush);
             }
