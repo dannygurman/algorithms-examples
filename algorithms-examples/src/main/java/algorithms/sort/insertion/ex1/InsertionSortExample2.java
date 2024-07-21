@@ -2,7 +2,7 @@ package algorithms.sort.insertion.ex1;
 
 import java.util.Arrays;
 
-public class InsertionSoertExample2 {
+public class InsertionSortExample2 {
 
 
     public static void main(String[] args) {

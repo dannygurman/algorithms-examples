@@ -4,7 +4,7 @@ package algorithms.sort.insertion.ex1;
  * Created by dannyg on 1/8/2018.
  */
 // Java program for implementation of Insertion Sort
-class InsertionSoertExample
+class InsertionSortExample
 {
     /*Function to sort array using insertion sort*/
     void sort(int arr[])
@@ -53,7 +53,7 @@ class InsertionSoertExample
         System.out.println("Before sort:");
         printArray(arr);
 
-        InsertionSoertExample ob = new InsertionSoertExample();
+        InsertionSortExample ob = new InsertionSortExample();
         ob.sort(arr);
 
 

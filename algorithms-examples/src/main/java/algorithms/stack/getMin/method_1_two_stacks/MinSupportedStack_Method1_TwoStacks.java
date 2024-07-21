@@ -39,10 +39,10 @@ public class MinSupportedStack_Method1_TwoStacks extends Stack<Integer> implemen
             int peekedMinimum = minimumsStack.peek();
             if (valToPush < peekedMinimum) {
                 minimumsStack.push(valToPush);
+            } else {
+                //push another value of the  peeked minimum
+                minimumsStack.push(peekedMinimum);
             }
-            else {
-                    minimumsStack.push(peekedMinimum);
-                }
         }
     }
 
