@@ -29,8 +29,8 @@ public class MaxIntervalsOverlapFinderTest {
     }
 
     private void testInternal(MaxIntervalsOverlapFinder maxIntervalsOverlapFinder){
-        int [] arriveTimes  = {1, 2, 9, 5, 5};
-        int [] exitTimes = {4, 5, 12, 9, 12};
+        int [] arriveTimes  = {1, 2, 10, 5, 5};
+        int [] exitTimes =    {4, 5, 12, 9, 12};
 
         int foundMaxGuests = maxIntervalsOverlapFinder.findMaxGuests(arriveTimes, exitTimes);
         Assert.assertEquals(5, foundMaxGuests);
