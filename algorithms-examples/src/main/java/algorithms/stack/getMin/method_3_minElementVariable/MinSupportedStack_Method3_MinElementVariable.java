@@ -45,7 +45,7 @@ public class MinSupportedStack_Method3_MinElementVariable implements MinSupporte
         //removing Top Most Element
         Integer poppedElement = internalStack.pop();
 
-        // Minimum will change as the minimum elementof the stack is being removed.
+        // Minimum will change as the minimum element of the stack is being removed.
         if (poppedElement < minEle) {
             minEle = 2 * minEle - poppedElement;
         }
