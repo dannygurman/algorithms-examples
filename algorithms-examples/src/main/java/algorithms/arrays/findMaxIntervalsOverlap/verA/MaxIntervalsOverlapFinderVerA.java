@@ -9,13 +9,13 @@ public class MaxIntervalsOverlapFinderVerA  implements MaxIntervalsOverlapFinder
 
     @Override
     public int findMaxGuests(int[] arriveTimes, int[] exitTimes) {
-        int minTime = Arrays.stream(arriveTimes).min().getAsInt();
-        int maxTime = Arrays.stream(exitTimes).max().getAsInt();
+        int minTimeHour = Arrays.stream(arriveTimes).min().getAsInt();
+        int maxTimeHour = Arrays.stream(exitTimes).max().getAsInt();
 
         //The count array hold the number of guests in each hour
-        //in
-        int countArraySize = maxTime - minTime + 1;
-        int [] countArray = new int[countArraySize];
+        //The indexes are the hours (starting from minTimeHour) and the values - the num of guests
+        int countArraySize = maxTimeHour - minTimeHour + 1;
+        int [] guestsPerHourCount = new int[countArraySize];
 
         int arrivalsNum = arriveTimes.length; //assumption arriveTimes.length = exitTimes.length
 
@@ -24,12 +24,12 @@ public class MaxIntervalsOverlapFinderVerA  implements MaxIntervalsOverlapFinder
             int exit = exitTimes[i];
 
             for (int j = arrival ;j <= exit ; j++){
-                countArray[ j - minTime]++;
+                int countArrayIndex = j - minTimeHour;
+                guestsPerHourCount[countArrayIndex]++;
             }
         }
 
-
-        return 0;
-
+       //return max guestsPerHourCount
+        return Arrays.stream(guestsPerHourCount).max().getAsInt();
     }
 }
