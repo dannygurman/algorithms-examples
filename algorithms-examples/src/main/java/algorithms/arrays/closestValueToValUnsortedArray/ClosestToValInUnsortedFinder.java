@@ -4,19 +4,20 @@ public class ClosestToValInUnsortedFinder {
 
     public int findClosestToValInUnsortedArray(int arr[], int val){
         // Stores the closest value to val
-        int res = arr[0];
+        int closestValue = arr[0];
 
 
         for(int i = 1; i < arr.length; i++)  {
             // If absolute difference of val and res exceeds
             // absolute difference of val  and current element
-            if (Math.abs(val - res) >  Math.abs(val - arr[i])) {
-                res = arr[i];
+            int curVal = arr[i];
+            if (Math.abs(val - closestValue) >  Math.abs(val - curVal)) {
+                closestValue = curVal;
             }
         }
 
         // Return the closest array element
-        return res;
+        return closestValue;
 
     }
 }
