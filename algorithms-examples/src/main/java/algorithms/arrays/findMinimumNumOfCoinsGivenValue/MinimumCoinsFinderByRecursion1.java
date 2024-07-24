@@ -22,20 +22,25 @@ public class MinimumCoinsFinderByRecursion1 implements MinimumCoinsFinder {
         }
 
         // Initialize result
-        int res = Integer.MAX_VALUE;
+        int minimumCoins = Integer.MAX_VALUE;
 
         // Try every coin that has smaller value than value
         for (int i=0; i< coins.length; i++) {
-            if (coins[i] <= value) {
-                int sub_res = findMinimumCoinsInternal(coins, value-coins[i]);
+            int currentCoin = coins[i];
+            if (currentCoin <= value) {
+                int sub_res = findMinimumCoinsInternal(coins, value-currentCoin);
 
-                // Check for INT_MAX to avoid overflow and see if result can be minimized
-                //meaning sub_res + 1 < res (1 for current coin)
-                if (sub_res != Integer.MAX_VALUE && sub_res + 1 < res)
-                    res = sub_res + 1;
+                // Check for INT_MAX to avoid overflow
+                if (sub_res == Integer.MAX_VALUE) {
+                   continue;//skip
+                }
+                //
+                // see if result can be minimized meaning sub_res + 1 < res (1 for current coin)
+                if (sub_res + 1 < minimumCoins)
+                    minimumCoins = sub_res + 1;
             }
         }
-        return res;
+        return minimumCoins;
     }
 
 }
