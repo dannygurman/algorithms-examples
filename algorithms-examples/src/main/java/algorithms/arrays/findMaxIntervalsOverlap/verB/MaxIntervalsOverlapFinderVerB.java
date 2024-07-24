@@ -4,6 +4,10 @@ import algorithms.arrays.findMaxIntervalsOverlap.MaxIntervalsOverlapFinder;
 
 import java.util.Arrays;
 
+/**
+ * Time Complexity: O(nLogn).
+ * Auxiliary Space: O(1) as no extra space has been taken
+ */
 public class MaxIntervalsOverlapFinderVerB implements MaxIntervalsOverlapFinder {
 
     @Override

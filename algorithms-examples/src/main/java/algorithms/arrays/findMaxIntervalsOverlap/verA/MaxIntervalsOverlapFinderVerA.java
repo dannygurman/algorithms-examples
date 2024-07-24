@@ -4,6 +4,12 @@ import algorithms.arrays.findMaxIntervalsOverlap.MaxIntervalsOverlapFinder;
 
 import java.util.Arrays;
 
+/**
+ * Above solution requires O(max-min+1) extra space
+ * . Also time complexity of  solution depends on lengths of intervals.
+ * In worst case, if all intervals are from ‘min’ to ‘max’, then time complexity
+ * becomes O((max-min+1)*n) where n is number of intervals.
+ */
 public class MaxIntervalsOverlapFinderVerA  implements MaxIntervalsOverlapFinder {
 
 
