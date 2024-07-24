@@ -23,9 +23,9 @@ public class MaxIntervalsOverlapFinderVerA  implements MaxIntervalsOverlapFinder
         int countArraySize = maxTimeHour - minTimeHour + 1;
         int [] guestsPerHourCount = new int[countArraySize];
 
-        int arrivalsNum = arriveTimes.length; //assumption arriveTimes.length = exitTimes.length
+        int arrivalsCount = arriveTimes.length; //assumption arriveTimes.length = exitTimes.length
 
-        for (int i =0 ; i <= arrivalsNum -1 ; i++) {
+        for (int i =0 ; i <= arrivalsCount -1 ; i++) {
             int arrival = arriveTimes[i];
             int exit = exitTimes[i];
 
