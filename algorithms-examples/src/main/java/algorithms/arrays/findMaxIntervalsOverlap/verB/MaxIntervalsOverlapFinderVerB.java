@@ -19,6 +19,8 @@ public class MaxIntervalsOverlapFinderVerB implements MaxIntervalsOverlapFinder 
         int guests_in = 1;
         int max_guests = 1;
         int time = arriveTimes[0];
+
+        //starting from first arrival - 1 guest
         int arriveTimesIndex = 1;
         int exitTimesIndex = 0;
 
@@ -27,18 +29,21 @@ public class MaxIntervalsOverlapFinderVerB implements MaxIntervalsOverlapFinder 
         while (arriveTimesIndex < arrivalsNum &&  exitTimesIndex < arrivalsNum) {
 
            // If next event in sorted order is arrival, increment count of guests
-            if (arriveTimes[arriveTimesIndex] <= exitTimes[exitTimesIndex]){
+            int nextArrivalTime = arriveTimes[arriveTimesIndex];
+            int nextExitTime = arriveTimes[arriveTimesIndex];
+
+            if (nextArrivalTime <= nextExitTime){
                 guests_in++;
 
                 // Update max_guests if needed
                 if (guests_in > max_guests) {
                     max_guests = guests_in;
-                    time = arriveTimes[arriveTimesIndex];
+                    time = nextArrivalTime;
                 }
                 arriveTimesIndex++; //increment index of arrival array
             }
             else {
-            // If event is exit, decrement count of guests.
+            //If next event in sorted order is exit, decrement count of guests.
                 guests_in--;
                 exitTimesIndex++;
             }
@@ -50,32 +55,3 @@ public class MaxIntervalsOverlapFinderVerB implements MaxIntervalsOverlapFinder 
 
 }
 
-
-   /*     // guests_in indicates number of guests at a time
-        int guests_in = 1, max_guests = 1, time = arrl[0];
-        int i = 1, j = 0;
-
-        // Similar to merge in merge sort to process
-        // all events in sorted order
-        while (i < n && j < n)
-        {
-        // If next event in sorted order is arrival,
-        // increment count of guests
-        if (arrl[i] <= exit[j])
-        {
-        guests_in++;
-
-        // Update max_guests if needed
-        if (guests_in > max_guests)
-        {
-        max_guests = guests_in;
-        time = arrl[i];
-        }
-        i++; //increment index of arrival array
-        }
-        else // If event is exit, decrement count
-        { // of guests.
-        guests_in--;
-        j++;
-        }
-        }*/
