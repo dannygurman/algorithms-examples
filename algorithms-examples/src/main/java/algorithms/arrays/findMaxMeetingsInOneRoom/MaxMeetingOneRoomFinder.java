@@ -6,7 +6,7 @@ import java.util.Set;
 public interface MaxMeetingOneRoomFinder {
 
     /*
-    Finds ids of meetings when number of meetings in room are maximum
+    Finds ids (array index) of max possible meetings
      */
     Set<Integer> findMaxMeetingsIds( List<Meeting> meetings);
 }
