@@ -26,14 +26,14 @@ public class MaxMeetingOneRoomFinderImpl implements MaxMeetingOneRoomFinder{
 
         // Check for all meeting whether it can be selected or not.
         for (int i = 1; i < meetings.size(); i++) {
-
-            if (meetings.get(i).start > timeLimit) {
+            Meeting currentMeeting = meetings.get(i);
+            if (currentMeeting.start > timeLimit) {
 
                 // Add selected meeting to arraylist
-                resultMeetingIds.add(meetings.get(i).positionIndex);
+                resultMeetingIds.add(currentMeeting.positionIndex);
 
                 // Update time limit
-                timeLimit = meetings.get(i).end;
+                timeLimit = currentMeeting.end;
             }
         }
 
