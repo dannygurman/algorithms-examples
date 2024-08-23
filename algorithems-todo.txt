@@ -1,0 +1,14 @@
+- https://www.geeksforgeeks.org/edit-distance-dp-5/
+
+
+-- https://www.geeksforgeeks.org/check-if-an-array-can-be-split-into-3-subsequences-of-equal-sum-or-not/-
+
+-- https://www.geeksforgeeks.org/priority-queue-set-1-introduction/
+
+
+--
+https://www.geeksforgeeks.org/print-leaf-nodes-left-right-binary-tree/
+
+
+https://www.geeksforgeeks.org/minimum-number-jumps-reach-endset-2on-solution/
+https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/

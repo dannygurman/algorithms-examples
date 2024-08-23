@@ -4,22 +4,30 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-public class BalancedParenthesesFinderByStackAndMap implements BalancedParenthesesFinder{
+import static java.util.Map.entry;
+
+public class BalancedParenthesesFinderByStackAndMap implements BalancedParenthesesFinder {
+
+    //mapping close symbol to matching open Parentheses symbol
+    private Map<Character, Character> closeSymbolToOpenSymbol = Map.ofEntries(
+            entry(')', '('),
+            entry('}', '{'),
+            entry(']', '[')
+    );
+
+
     @Override
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
-        
-        Map<Character, Character> mapping = new HashMap<>();
-        mapping.put(')', '(');
-        mapping.put('}', '{');
-        mapping.put(']', '[');
 
         for (char currentChar : s.toCharArray()) {
-            if (mapping.containsValue(currentChar)) {
+            //check if current char is Parentheses open value
+            if (closeSymbolToOpenSymbol.containsValue(currentChar)) {
                 //put start Parentheses symbol
                 stack.push(currentChar);
-            } else if (mapping.containsKey(currentChar)) {
-                if (stack.isEmpty() || mapping.get(currentChar) != stack.pop()) {
+            } else if (closeSymbolToOpenSymbol.containsKey(currentChar)) {
+                if (stack.isEmpty() ||
+                        closeSymbolToOpenSymbol.get(currentChar) != stack.pop()) {
                     return false;
                 }
             }
