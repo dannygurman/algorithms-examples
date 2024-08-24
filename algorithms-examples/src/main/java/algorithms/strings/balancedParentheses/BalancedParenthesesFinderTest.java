@@ -17,6 +17,12 @@ public class BalancedParenthesesFinderTest {
         testBalancedParenthesesFinderInternal(finder);
     }
 
+    @Test
+    public void testBalancedParenthesesFinderUsingArray() {
+        BalancedParenthesesFinder finder = new BalancedParenthesesFinderUsingArray();
+        testBalancedParenthesesFinderInternal(finder);
+    }
+
     private void testBalancedParenthesesFinderInternal(BalancedParenthesesFinder finder) {
         String expr1 = "([{}])";
         boolean result1 = finder.isValid(expr1);
