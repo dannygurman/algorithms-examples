@@ -6,8 +6,14 @@ import org.junit.Test;
 public class BalancedParenthesesFinderTest {
 
     @Test
-    public void testBalancedParenthesesFinderByStackAndMap() {
-        BalancedParenthesesFinder finder = new BalancedParenthesesFinderByStackAndMap();
+    public void testBalancedParenthesesFinderUsingStackAndMap() {
+        BalancedParenthesesFinder finder = new BalancedParenthesesFinderUsingStackAndMap();
+        testBalancedParenthesesFinderInternal(finder);
+    }
+
+    @Test
+    public void testBalancedParenthesesFinderUsingDeque() {
+        BalancedParenthesesFinder finder = new BalancedParenthesesFinderUsingDeque();
         testBalancedParenthesesFinderInternal(finder);
     }
 

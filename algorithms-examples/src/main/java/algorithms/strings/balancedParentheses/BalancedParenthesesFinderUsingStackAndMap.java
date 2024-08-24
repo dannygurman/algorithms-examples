@@ -1,12 +1,11 @@
 package algorithms.strings.balancedParentheses;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
 import static java.util.Map.entry;
 
-public class BalancedParenthesesFinderByStackAndMap implements BalancedParenthesesFinder {
+public class BalancedParenthesesFinderUsingStackAndMap implements BalancedParenthesesFinder {
 
     //mapping close symbol to matching open Parentheses symbol
     private Map<Character, Character> closeSymbolToOpenSymbol = Map.ofEntries(
@@ -17,10 +16,10 @@ public class BalancedParenthesesFinderByStackAndMap implements BalancedParenthes
 
 
     @Override
-    public boolean isValid(String s) {
+    public boolean isValid(String expression) {
         Stack<Character> stack = new Stack<>();
 
-        for (char currentChar : s.toCharArray()) {
+        for (char currentChar : expression.toCharArray()) {
             //check if current char is Parentheses open value
             if (closeSymbolToOpenSymbol.containsValue(currentChar)) {
                 //put start Parentheses symbol
@@ -32,7 +31,7 @@ public class BalancedParenthesesFinderByStackAndMap implements BalancedParenthes
                 }
             }
         }
-
+        //stack expected to be empty if balanced
         return stack.isEmpty();
     }
 }
