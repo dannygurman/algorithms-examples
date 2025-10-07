@@ -1,4 +1,4 @@
-package algorithms.arrays.triangleMinPathFromUp;
+package algorithms.arrays.triangleMinPathFromUp_120;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package algorithms.arrays.triangleMinPathFromUp;
+package algorithms.arrays.triangleMinPathFromUp_120;
 
 
 import java.util.List;
