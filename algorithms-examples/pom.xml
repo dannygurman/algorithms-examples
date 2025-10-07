@@ -13,7 +13,7 @@
         <java.version>9</java.version>
         <guava.version>26.0-jre</guava.version>
         <junit.version>4.12</junit.version>
-        <lombok.version>1.18.20</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
     </properties>
 
     <dependencies>

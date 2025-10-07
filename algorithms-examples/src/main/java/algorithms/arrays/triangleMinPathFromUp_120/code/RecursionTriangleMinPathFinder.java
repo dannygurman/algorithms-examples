@@ -1,4 +1,4 @@
-package algorithms.arrays.triangleMinPathFromUp_120;
+package algorithms.arrays.triangleMinPathFromUp_120.code;
 
 
 import java.util.List;
@@ -32,6 +32,7 @@ class RecursionTriangleMinPathFinder implements TriangleMinPathFinder {
 
         // Store result in memo and return
         memo[row][col] = minPath;
+
         return minPath;
     }
 }
