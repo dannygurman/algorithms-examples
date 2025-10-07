@@ -1,4 +1,4 @@
-package algorithms.arrays.FindDisappearedNumbers;
+package algorithms.arrays.FindDisappearedNumbers_448;
 
 import java.util.ArrayList;
 import java.util.Arrays;
