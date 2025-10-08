@@ -1,4 +1,4 @@
-package algorithms.strings.longestSubstringWithoutRepeatingChar;
+package algorithms.strings.longestSubstringWithoutRepeatingChar_03;
 
 import java.util.HashSet;
 import java.util.Set;

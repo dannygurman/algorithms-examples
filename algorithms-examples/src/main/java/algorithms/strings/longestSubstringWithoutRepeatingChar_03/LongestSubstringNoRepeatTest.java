@@ -1,4 +1,4 @@
-package algorithms.strings.longestSubstringWithoutRepeatingChar;
+package algorithms.strings.longestSubstringWithoutRepeatingChar_03;
 
 import org.junit.Assert;
 import org.junit.Test;
