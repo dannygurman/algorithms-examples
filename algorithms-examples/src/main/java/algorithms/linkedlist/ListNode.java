@@ -1,8 +1,11 @@
 package algorithms.linkedlist;
 
 
+import java.util.Objects;
+
 //Definition for singly-linked list.
 public class ListNode {
+
     public Integer val;
     public ListNode next;
 
@@ -52,5 +55,54 @@ public class ListNode {
             current = current.next;
         }
         System.out.println();
+    }
+
+    /**
+     * Compares two lists by their values (not references).
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof ListNode)) return false;
+
+        ListNode a = this;
+        ListNode b = (ListNode) obj;
+
+        while (a != null && b != null) {
+            if (!Objects.equals(a.val, b.val)) return false;
+            a = a.next;
+            b = b.next;
+        }
+        return a == null && b == null;
+    }
+
+    /**
+     * Generates hash code based on list contents.
+     */
+    @Override
+    public int hashCode() {
+        int result = 1;
+        ListNode current = this;
+        while (current != null) {
+            result = 31 * result + Objects.hashCode(current.val);
+            current = current.next;
+        }
+        return result;
+    }
+
+
+    /**
+     * For better test failure messages.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        ListNode current = this;
+        while (current != null) {
+            sb.append(current.val);
+            if (current.next != null) sb.append(" -> ");
+            current = current.next;
+        }
+        return sb.toString();
     }
 }
