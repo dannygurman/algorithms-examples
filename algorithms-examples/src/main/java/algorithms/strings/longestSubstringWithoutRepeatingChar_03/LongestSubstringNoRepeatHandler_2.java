@@ -32,16 +32,18 @@ public class LongestSubstringNoRepeatHandler_2 implements LongestSubstringNoRepe
         for (int rightInd = 0; rightInd < n; rightInd++) {
             Character charAtRight = str.charAt(rightInd);
             //checking if in NOT in map (never face this char before) ,
-            // or in map before the left index) - so it does NOT effect current sub string
-            if (!charToLastOccurrenceIndex.containsKey(charAtRight)
+            // or in map before the left index - so it does NOT affect current sub string
+            if ( ! charToLastOccurrenceIndex.containsKey(charAtRight)
                     || charToLastOccurrenceIndex.get(charAtRight) < leftInd) {
-                charToLastOccurrenceIndex.put(charAtRight, rightInd);
-                int rightToLeftLength = rightInd - leftInd + 1;
                 //Update map last occurrence for charAtRight to current index
+                charToLastOccurrenceIndex.put(charAtRight, rightInd);
+
+                int rightToLeftLength = rightInd - leftInd + 1;
                 maxLength = Math.max(maxLength, rightToLeftLength);
             } else {
-                //Moving left index to last occurrence of right char +1
+                //Moving left index to last occurrence of right char + 1
                 leftInd = charToLastOccurrenceIndex.get(charAtRight) + 1;
+
                 //Update map last occurrence for charAtRight to current index
                 charToLastOccurrenceIndex.put(charAtRight, rightInd);
             }
