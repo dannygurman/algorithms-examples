@@ -34,13 +34,13 @@ public class BinarySearchUpperBound {
 
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] <= target) {
+            if (nums[mid] <= target) { //Not <=
                 left = mid + 1;
             } else {
                 right = mid;
             }
         }
 
-        return left; // first index > target
+        return left; // first index when > target
     }
 }
