@@ -1,16 +1,35 @@
 package algorithms.arrays.binarySearch_704.code;
 
-/**
- * Here we introduce an alternative way to implement binary search:
- * instead of looking for target in the array nums,
- * we look for the insert position where we can put target
- * in without disrupting the order.
- * In case of duplicates, we return the rightmost index.
- */
 public class BinarySearchUpperBound {
 
-    public int search(int[] nums, int target) {
-        // Set the left and right boundaries
+    /**
+     * Public method — returns the rightmost index of target if found,
+     * otherwise returns -1.
+     */
+    public int searchExact(int[] nums, int target) {
+        int insertionPoint = findUpperBound(nums, target);
+
+        // If target exists, it's just before the insertion point.
+        if (insertionPoint > 0 && nums[insertionPoint - 1] == target) {
+            return insertionPoint - 1;
+        } else {
+            return -1;
+        }
+    }
+
+    /**
+     * Public method — always returns the insertion index (upper bound),
+     * even if target is not found.
+     */
+    public int searchInsert(int[] nums, int target) {
+        return findUpperBound(nums, target);
+    }
+
+    /**
+     * Private internal helper that finds the first index
+     * greater than target (the upper bound).
+     */
+    private int findUpperBound(int[] nums, int target) {
         int left = 0, right = nums.length;
 
         while (left < right) {
@@ -22,10 +41,6 @@ public class BinarySearchUpperBound {
             }
         }
 
-        if (left > 0 && nums[left - 1] == target) {
-            return left - 1;
-        } else {
-            return -1;
-        }
+        return left; // first index > target
     }
 }
